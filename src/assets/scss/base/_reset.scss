@@ -1,0 +1,51 @@
+/* Reset */
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: baseline
+}
+html {
+    scroll-behavior: smooth;
+}
+html, body {
+    height: 100%;
+    width: 100%
+}  
+ul, li, a {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none
+}    
+input, button {
+    background-color: transparent;
+    border: 0
+}
+img, picture, video, iframe, figure {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+}
+h1, h2, h3, h4, h5, h6, p,span, a, strong, blockquote, i, b, u, em {
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+form, input, textarea, select, button, label {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color:inherit;
+    appearance: none;
+}
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+  

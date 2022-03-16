@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+@function pxTorem($px, $font-size:16px) {
+    $unidad: math.div($px, 1px);
+    $current-font: math.div($font-size, 1px);
+    $resultado: math.div($unidad, $current-font);
+
+    @return $resultado * 1rem;
+}
+@function pxToem($px, $font-size:16px) {
+    $unidad: math.div($px, 1px);
+    $current-font: math.div($font-size, 1px);
+    $resultado: math.div($unidad, $current-font);
+
+    @return $resultado * 1em;
+}
+@function changeSizeFont($font-size, $percentage, $option:increase) {
+    $font: $font-size;
+    $value: (math.div($percentage, 100)) * $font;
+    @if($option == increase){
+        $font: $font + $value;
+    }
+    @if($option == decrease){
+        $font: $font - $value;
+    }
+    @return $font;
+}

@@ -1,0 +1,16 @@
+@use 'variables' as var;
+@use 'funciones' as fn;
+$espaciado: var.getTypography('line-height');
+
+%texto {
+    letter-spacing: normal;
+    line-height: #{$espaciado};
+    overflow-wrap: break-word;
+}
+%boton {
+    border-radius: 3px;
+    padding: (fn.pxTorem(12px) fn.pxTorem(20px));
+    cursor: pointer;
+    font-size: var(--tipografia-size);
+    font-weight: 700;
+}

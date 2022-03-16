@@ -1,0 +1,28 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/funciones' as funciones;
+
+/* Global */
+body {
+    @include mixins.createFlex(flex-start,
+                                flex-start,
+                                column);
+    font-family: var(--tipografia-family);
+    font-size: var(--tipografia-size);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    min-width: funciones.pxTorem(320px); 
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-title);
+}
+p {
+    color: var(--color-text);
+}
+a {
+    color: var(--color-primary);
+}
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-title);
+}

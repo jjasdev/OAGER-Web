@@ -1,0 +1,86 @@
+@use 'funciones' as fn;
+@use 'sass:map';
+
+//1-VARIABLES
+// Colores
+$palette: (
+    'color-primary': #e8816e,
+    'color-secondary': #c95d5d,
+    'color-background-primary': #1e2a3b,
+    'color-background-secondary': #616373,
+    'color-background-terciary': #fff,
+    'color-title': #1e2a3b,
+    'color-text': #616373,
+    'color-border': #e6e6ea,
+    'color-icon': #8e91a2,
+    'color-light': #fff,
+    'color-dark': #202130
+);
+// Tipografía
+$font-size-default: fn.pxTorem(16px);
+$typography: (    
+    'font-family-title': ('Oswald', sans-serif),
+    'font-family-text': ('Roboto', sans-serif),
+    'line-height': fn.pxToem(20px),
+    'font-size': (
+        'default': $font-size-default,
+        'h1': fn.changeSizeFont($font-size-default, 100, increase),
+        'h2': fn.changeSizeFont($font-size-default, 50, increase),
+        'h3': fn.changeSizeFont($font-size-default, 20, increase),
+    )    
+);
+// Media queries
+$breakpoints: (
+    'computer': 1200px,
+    'tablet': 992px,
+    'mobile': 768px,
+    'small-mobile': 596px
+);
+// Imágenes
+$images: (
+    'logo-oager': '../images/logo-oager.webp'
+    'logo-30oager': '../images/logo-30oager.webp'
+    'header-background': '../images/plaza-salamanca.webp'
+    'banner-contact': '../images/banner-contacto.webp'
+    'banner-procedure': '../images/banner-tramites.webp'
+    'banner-mayor': '../images/banner-tramites.webp'
+    'footer-image': '../images/fachada-oager.webp'
+    'footer-certification9001': '../images/ISO-9001.webp'
+    'footer-certification27001': '../images/ISO-27001.webp'
+);
+//2-MAPEO
+@function getColor($color) {   
+    @return map.get($palette, $color);
+}
+@function getTypography($property) {   
+    @if($property == 'font-family') or ($property == 'line-height'){
+        @return map.get($typography, $property);
+    } @else{        
+        @return map.get(map.get($typography, 'font-size'), $property);
+    }
+}
+@function getImageURL($image) {   
+    @return map.get($images, $image);
+}
+@function getMedia($media) {   
+    @return map.get($breakpoints, $media);
+}
+//3-CUSTOM PROPERTIES
+:root {
+    // Colores
+    --color-primary: #{getColor('color-primary')};
+    --color-secondary: #{getColor('color-secondary')};
+    --color-background-primary: #{getColor('color-background-primary')};
+    --color-background-secondary: #{getColor('color-background-secondary')};
+    --color-background-terciary: #{getColor('color-background-terciary')};
+    --color-title: #{getColor('color-title')};
+    --color-text: #{getColor('color-text')};
+    --color-border: #{getColor('color-border')};
+    --color-icon: #{getColor('color-icon')};
+    --color-light: #{getColor('color-light')};
+    --color-dark: #{getColor('color-dark')};
+    // Tipografía
+    --tipo-title: #{getTypography('font-family-title')};
+    --tipo-text: #{getTypography('font-family-text')};
+    --tipo-size: #{getTypography('default')};
+}

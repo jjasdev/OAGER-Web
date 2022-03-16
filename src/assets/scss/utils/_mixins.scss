@@ -1,0 +1,59 @@
+@use 'variables' as var;
+@use 'funciones' as fn;
+@use 'sass:meta';
+
+@mixin createFlex($direction:row, $align-axis-main:center, $align-axis-cross:center) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align-axis-cross;
+    justify-content: $align-axis-main;
+    width: 100%;
+    @content;
+}
+@mixin createGrid($gap:20px, $rows, $columns, $area:'') {
+    display: grid;   
+    grid-template-rows: $rows;
+    grid-template-columns: $columns;        
+    gap: fn.pxTorem($gap);
+    @if($area != ''){
+        @include createArea($area);
+    }
+    @content;
+}
+@mixin createArea($area) {
+    grid-template-areas: $area;
+}
+@mixin createLayout($properties...){
+    @each $clave, $valor in meta.keywords($properties){
+        #{$clave}: $valor;
+    }
+}
+@mixin createPseudoelement($pseudoelement:before, $content:''){
+    &::#{$pseudoelement} {
+        position: absolute;
+        content: $content;
+        @content;
+    }
+}
+@mixin addBackground($img, $position, $repeat, $size, $color, $duration:1s, $delay:.5s) {
+    background: {
+        image: url($img);
+        position: $position;
+        repeat: $repeat;
+        size: $size;
+        color: $color;
+    }
+    animation: {
+        duration: $duration;
+        name: show;
+        delay: $delay;
+    }
+}
+@mixin addBreakpoint($media) {
+    @media screen and (max-width: var.getMedia($media)) {
+        @content;
+    }
+}
+@mixin addTransition($property:all) {
+    transition: $property .3s ease-in-out;
+}
