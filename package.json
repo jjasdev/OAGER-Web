@@ -1,0 +1,33 @@
+{
+  "name": "oager",
+  "version": "1.0.0",
+  "description": "Maquetación web del OAGER",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "sass": "sass --watch src/assets/scss:dist/assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juanjo-CGB/OAGER-Web.git"
+  },
+  "keywords": [
+    "css",
+    "javascript",
+    "html",
+    "scss"
+  ],
+  "author": "Juanjo Alonso Sz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juanjo-CGB/OAGER-Web/issues"
+  },
+  "homepage": "https://github.com/Juanjo-CGB/OAGER-Web#readme",
+  "devDependencies": {
+    "sass": "^1.49.9"
+  },
+  "dependencies": {
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^7.0.0"
+  }
+}
