@@ -14,13 +14,16 @@ $palette: (
     'color-border': #e6e6ea,
     'color-icon': #8e91a2,
     'color-light': #fff,
-    'color-dark': #202130
+    'color-dark': #202130,
+    'color-info': #079be2,
+    'color-success': #28825d,
+    'color-error': #ca0928
 );
 // Tipografía
 $font-size-default: fn.pxTorem(16px);
 $typography: (    
-    'font-family-title': ('Oswald', sans-serif),
-    'font-family-text': ('Roboto', sans-serif),
+    'font-title': ('Oswald', sans-serif),
+    'font-text': ('Roboto', sans-serif),
     'line-height': fn.pxToem(20px),
     'font-size': (
         'default': $font-size-default,
@@ -31,21 +34,23 @@ $typography: (
 );
 // Media queries
 $breakpoints: (
-    'computer': 1200px,
-    'tablet': 992px,
-    'mobile': 768px,
-    'small-mobile': 596px
+    'xxlarge': 1440px,
+    'xlarge': 1200px,
+    'large': 992px,
+    'medium': 768px,
+    'small': 596px,
+    'xsmall': 0
 );
 // Imágenes
 $images: (
-    'logo-oager': '../images/logo-oager.webp'
-    'logo-30oager': '../images/logo-30oager.webp'
-    'header-background': '../images/plaza-salamanca.webp'
-    'banner-contact': '../images/banner-contacto.webp'
-    'banner-procedure': '../images/banner-tramites.webp'
-    'banner-mayor': '../images/banner-tramites.webp'
-    'footer-image': '../images/fachada-oager.webp'
-    'footer-certification9001': '../images/ISO-9001.webp'
+    'logo-oager': '../images/logo-oager.webp',
+    'logo-30oager': '../images/logo-30oager.webp',
+    'header-background': '../images/plaza-salamanca.webp',
+    'banner-contact': '../images/banner-contacto.webp',
+    'banner-procedure': '../images/banner-tramites.webp',
+    'banner-mayor': '../images/banner-tramites.webp',
+    'footer-image': '../images/fachada-oager.webp',
+    'footer-certification9001': '../images/ISO-9001.webp',
     'footer-certification27001': '../images/ISO-27001.webp'
 );
 //2-MAPEO
@@ -53,7 +58,7 @@ $images: (
     @return map.get($palette, $color);
 }
 @function getTypography($property) {   
-    @if($property == 'font-family') or ($property == 'line-height'){
+    @if($property == 'font-title') or ($property == 'font-text') or ($property == 'line-height'){
         @return map.get($typography, $property);
     } @else{        
         @return map.get(map.get($typography, 'font-size'), $property);
@@ -79,8 +84,11 @@ $images: (
     --color-icon: #{getColor('color-icon')};
     --color-light: #{getColor('color-light')};
     --color-dark: #{getColor('color-dark')};
+    --color-info: #{getColor('color-info')};
+    --color-error: #{getColor('color-error')};
+    --color-success: #{getColor('color-success')};
     // Tipografía
-    --tipo-title: #{getTypography('font-family-title')};
-    --tipo-text: #{getTypography('font-family-text')};
-    --tipo-size: #{getTypography('default')};
+    --font-title: #{getTypography('font-title')};
+    --font-text: #{getTypography('font-text')};
+    --font-size: #{getTypography('default')};
 }

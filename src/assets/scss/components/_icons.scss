@@ -1,0 +1,23 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+@use '../utils/extends' as ex;
+
+/* Icons */
+.date__icon {
+    color: var(--color-primary);
+}
+.contact__icon {
+    color: var(--color-primary);
+    &--white {
+        padding: 0;
+        color: var(--color-light);
+
+        &:hover {
+            color: rgba(var.getColor('color-light'), 0.8); 
+        }
+    }
+    &--light {
+        color: rgba(var.getColor('color-light'), 0.8);
+    }
+}

@@ -1,13 +1,13 @@
-@use 'variables' as var;
 @use 'funciones' as fn;
+@use 'variables' as var;
 @use 'sass:meta';
 
-@mixin createFlex($direction:row, $align-axis-main:center, $align-axis-cross:center) {
+@mixin createFlex($direction:row, $align-axis-main:center, $align-axis-cross:center, $width:100%) {
     display: flex;
     flex-direction: $direction;
     align-items: $align-axis-cross;
     justify-content: $align-axis-main;
-    width: 100%;
+    width: $width;
     @content;
 }
 @mixin createGrid($gap:20px, $rows, $columns, $area:'') {
@@ -35,19 +35,37 @@
         @content;
     }
 }
-@mixin addBackground($img, $position, $repeat, $size, $color, $duration:1s, $delay:.5s) {
+@mixin createSubmenu($width:max-content){
+    position: absolute;
+    width: $width;
+    @content;
+}
+@mixin addBackground($img, $position, $repeat, $size, $duration:1s, $delay:.5s) {
     background: {
         image: url($img);
         position: $position;
         repeat: $repeat;
         size: $size;
-        color: $color;
-    }
+    }    
     animation: {
         duration: $duration;
         name: show;
         delay: $delay;
     }
+}
+@mixin addImageGradient($direction, $color-start, $color-end, $img, $size){
+    background: {
+        image: linear-gradient(to $direction, $color-start 0%, $color-end 100%), url($img);
+        position: center;
+        repeat: no-repeat;
+        size: $size;
+    }
+}
+@mixin addNeo($radius, $color, $axis, $shadow:'color-dark', $opacity: .125) {
+    border-radius: $radius;
+    background-color: $color;
+    box-shadow: $axis $axis ($axis*2) $color,
+                (-$axis) (-$axis) ($axis*2) rgba(var.getColor($shadow), $opacity);
 }
 @mixin addBreakpoint($media) {
     @media screen and (max-width: var.getMedia($media)) {

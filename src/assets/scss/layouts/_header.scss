@@ -1,0 +1,29 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+@use '../utils/extends' as ex;
+
+/* Header */
+.header { 
+    @include mx.createFlex(column, flex-start, flex-start);
+
+    &__sidebar {      
+        height: fn.pxTorem(50px);
+        padding: 0 fn.pxTorem(100px); 
+        background-color: var(--color-background-primary);
+        color: rgba(var.getColor('color-light'), 0.8);
+        @include mx.createGrid(20px,auto,auto 1fr) {
+            width: 100%;
+        };
+    }
+
+    &__slider {
+        height: fn.pxTorem(800px);
+        width: 100%;
+        @include mx.addImageGradient(bottom,
+                                    rgba(var.getColor('color-background-primary'), 0.7),
+                                    rgba(var.getColor('color-background-primary'), 0.7),
+                                    var.getImageURL('header-background'),
+                                    cover);
+    }
+}

@@ -1,5 +1,5 @@
-@use 'variables' as var;
 @use 'funciones' as fn;
+@use 'variables' as var;
 $espaciado: var.getTypography('line-height');
 
 %texto {
@@ -9,8 +9,20 @@ $espaciado: var.getTypography('line-height');
 }
 %boton {
     border-radius: 3px;
-    padding: (fn.pxTorem(12px) fn.pxTorem(20px));
+    border-radius: 5px;
     cursor: pointer;
-    font-size: var(--tipografia-size);
+    display: inline-block;
+    font-size: var(--tipo-size);
     font-weight: 700;
+    padding: (fn.pxTorem(5px) fn.pxTorem(22px));
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+}
+%horario {
+    font-size: calc(var(--font-size) - .25rem);
+    font-weight: 700;
+}
+%ocultar {
+    display: none;
 }

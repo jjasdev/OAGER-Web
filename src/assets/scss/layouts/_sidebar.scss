@@ -1,0 +1,124 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+@use '../utils/extends' as ex;
+
+/* Sidebar */
+.date {
+    font-weight: 300;
+    @include mx.createFlex(row, flex-start, center) {
+        gap: fn.pxTorem(8px);
+    };
+
+    &__container {
+        @include mx.createFlex(row, flex-start, center) {
+            gap: fn.pxTorem(8px);
+        };
+    }
+
+    &__hour {
+        font-weight: 500;
+        color: var(--color-light);
+    }
+}
+.contact {
+    height: 100%;
+    position: relative;
+    font-weight: 300;
+    @include mx.createFlex(row, flex-end, center);
+
+    &__telephone,
+    &__schedule {
+        padding-right: fn.pxTorem(16px);              
+        @include mx.createFlex(row, center, center, auto) {
+            gap: fn.pxTorem(8px);
+        };
+    }
+
+    &__telephone {
+        border-right: 1px solid rgba(var.getColor('color-border'), 0.5); 
+    }
+
+    &__telephone-link {        
+        &:hover {
+            color: var(--color-light);
+        }
+    }
+
+    &__schedule {
+        height: 100%;
+        padding-left: fn.pxTorem(16px);
+        cursor: pointer;
+
+        &:hover > &-text,
+        &:hover > .contact__icon--light{
+            color: var(--color-light);
+        }
+
+        &:hover > .contact__submenu {            
+            @include mx.createFlex(column, center, center, auto); 
+            transition: display .5s;
+        }
+
+        &-state {            
+            @extend %horario;
+            
+            &--open {
+                color: lighten(var.getColor('color-success'), 25%);
+            }
+
+            &--close {
+                color: lighten(var.getColor('color-error'), 25%);
+            }
+        }
+    }
+
+    &__submenu {     
+        display: none; 
+        @include mx.addNeo(3px, var(--color-background-primary), 5px);
+        @include mx.createSubmenu {
+            top: fn.pxTorem(50px);
+            right: fn.pxTorem(65px);
+        };        
+
+        &-item {
+            width: 100%;
+            padding: fn.pxTorem(16px);
+            border-bottom: 1px solid rgba(var.getColor('color-border'), 0.5); 
+            text-align: center; 
+            cursor: default;
+
+                &:first-child{
+                    border-top: 3px solid var(--color-primary); 
+                }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            &--background {
+                background-color: rgba(var.getColor('color-light'), 0.2);
+            }            
+        }
+
+        &-title {
+            font-weight: 500;
+            color: var(--color-light);
+        }
+
+        &-text {
+            text-transform: capitalize;
+        }
+    }
+
+    &__social {
+        padding-left: fn.pxTorem(16px);
+        border-left: 1px solid rgba(var.getColor('color-border'), 0.5); 
+
+        &-links {
+            @include mx.createFlex(row, center, center) {
+                gap: fn.pxTorem(16px);
+            };            
+        }
+    }
+}

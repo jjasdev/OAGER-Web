@@ -1,0 +1,282 @@
+:root {
+  --color-primary: #e8816e;
+  --color-secondary: #c95d5d;
+  --color-background-primary: #1e2a3b;
+  --color-background-secondary: #616373;
+  --color-background-terciary: #fff;
+  --color-title: #1e2a3b;
+  --color-text: #616373;
+  --color-border: #e6e6ea;
+  --color-icon: #8e91a2;
+  --color-light: #fff;
+  --color-dark: #202130;
+  --color-info: #079be2;
+  --color-error: #ca0928;
+  --color-success: #28825d;
+  --font-title: Oswald, sans-serif;
+  --font-text: Roboto, sans-serif;
+  --font-size: 1rem;
+}
+
+.contact__schedule-state {
+  font-size: calc(var(--font-size) - 0.25rem);
+  font-weight: 700;
+}
+
+/* Reset */
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+ul, li, a {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+input, button {
+  background-color: transparent;
+  border: 0;
+}
+
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  display: block;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  appearance: none;
+}
+
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Global */
+body {
+  min-height: 100vh;
+  min-width: 20rem;
+  width: 100%;
+  font-family: var(--font-text);
+  font-size: var(--font-size);
+  background-color: var(--color-background-terciary);
+  color: var(--color-text);
+}
+
+form {
+  display: flex;
+  flex-direction: flex-start;
+  align-items: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--color-title);
+}
+
+p {
+  font-weight: 500;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-title);
+}
+
+/* Buttons */
+/* Icons */
+.date__icon {
+  color: var(--color-primary);
+}
+
+.contact__icon {
+  color: var(--color-primary);
+}
+.contact__icon--white {
+  padding: 0;
+  color: var(--color-light);
+}
+.contact__icon--white:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.contact__icon--light {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+.header__sidebar {
+  height: 3.125rem;
+  padding: 0 6.25rem;
+  background-color: var(--color-background-primary);
+  color: rgba(255, 255, 255, 0.8);
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  width: 100%;
+}
+.header__slider {
+  height: 50rem;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(30, 42, 59, 0.7) 0%, rgba(30, 42, 59, 0.7) 100%), url("../images/plaza-salamanca.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Sidebar */
+.date {
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+}
+.date__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+}
+.date__hour {
+  font-weight: 500;
+  color: var(--color-light);
+}
+
+.contact {
+  height: 100%;
+  position: relative;
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.contact__telephone, .contact__schedule {
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  gap: 0.5rem;
+}
+.contact__telephone {
+  border-right: 1px solid rgba(230, 230, 234, 0.5);
+}
+.contact__telephone-link:hover {
+  color: var(--color-light);
+}
+.contact__schedule {
+  height: 100%;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+.contact__schedule:hover > .contact__schedule-text, .contact__schedule:hover > .contact__icon--light {
+  color: var(--color-light);
+}
+.contact__schedule:hover > .contact__submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  transition: display 0.5s;
+}
+.contact__schedule-state--open {
+  color: #5dcd9f;
+}
+.contact__schedule-state--close {
+  color: #f85b74;
+}
+.contact__submenu {
+  display: none;
+  border-radius: 3px;
+  background-color: var(--color-background-primary);
+  box-shadow: 5px 5px 10px var(--color-background-primary), -5px -5px 10px rgba(32, 33, 48, 0.125);
+  position: absolute;
+  width: max-content;
+  top: 3.125rem;
+  right: 4.0625rem;
+}
+.contact__submenu-item {
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(230, 230, 234, 0.5);
+  text-align: center;
+  cursor: default;
+}
+.contact__submenu-item:first-child {
+  border-top: 3px solid var(--color-primary);
+}
+.contact__submenu-item:last-child {
+  border-bottom: 0;
+}
+.contact__submenu-item--background {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.contact__submenu-title {
+  font-weight: 500;
+  color: var(--color-light);
+}
+.contact__submenu-text {
+  text-transform: capitalize;
+}
+.contact__social {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(230, 230, 234, 0.5);
+}
+.contact__social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */

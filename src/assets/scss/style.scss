@@ -1,6 +1,6 @@
 // Utilities
-@forward 'utils/variables';
 @forward 'utils/funciones';
+@forward 'utils/variables';
 @forward 'utils/mixins';
 @forward 'utils/extends';
 
@@ -10,9 +10,10 @@
 
 // Componentes
 @forward 'components/buttons';
-@forward 'components/texts';
+@forward 'components/icons';
 
 // Layouts
 @forward 'layouts/header';
+@forward 'layouts/sidebar';
 
 // Secciones
