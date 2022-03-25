@@ -9,6 +9,7 @@
 }
 .contact__icon {
     color: var(--color-primary);
+    
     &--white {
         padding: 0;
         color: var(--color-light);
@@ -17,7 +18,17 @@
             color: rgba(var.getColor('color-light'), 0.8); 
         }
     }
+    
     &--light {
         color: rgba(var.getColor('color-light'), 0.8);
+    }
+}
+.slider-banner__icon {
+    font-size: var.getTypography('xxl');;
+    color: rgba(var.getColor('color-light'), 0.8);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-light);
     }
 }

@@ -17,74 +17,141 @@
     <link rel="shortcut icon" type="image/webp" href="assets/images/favicon.webp"/>
     <link rel="apple-touch-icon" href="assets/images/favicon.webp"/>
 </head>
-<body>
-    <form id="aspnet-form" method="post" action="https://www.oager.com/">
-        <!-- Se mantiene este bloque por la estructura original-->
-        <div class="aspnet-form__hidden">
-            <input class="aspnet-form__input" type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDw">
-        </div>        
-        <div class="aspnet-form__hidden">        
-            <input class="aspnet-form__input" type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8D0E13E6">
-            <input class="aspnet-form__input" type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAANES/HmIxvHb8x7n1fvVNvQkWeiZP1EJJDQRE+KAa1eizD+Uaqp152WGKzUeCUMUysPHX5ixLvx743YQeY1cTyXPgzja9i3QpKi1t6JkeFBsg==">
-        </div>
-        <!------------------------------------------->
-        <header class="header">
-            <div class="header__sidebar">
-                <div class="date">
-                    <i class="date__icon fas fa-calendar"></i>
-                    <div class="date__container">
-                        <div class="date__hour"></div>
-                        <div class="date__day"></div>
-                    </div>
-                </div>
-                <div class="contact">
-                    <div class="contact__telephone">
-                        <i class="contact__icon fas fa-phone"></i>
-                        <a class="contact__telephone-link" href="tel:+34900701000">900 701 000</a>
-                    </div>
-                    <div class="contact__schedule" aria-label="Ver horarios de atención" title="Horarios de atención">
-                        <i class="contact__icon fas fa-clock"></i>
-                        <span class="contact__schedule-text">Horario de atención</span>
-                        <span class="contact__schedule-state"></span>
-                        <i class="contact__icon contact__icon--light fas fa-angle-down"></i>
-                        <ul class="contact__submenu">
-                            <li class="contact__submenu-item">
-                                <span class="contact__submenu-title">Disponibilidad del servicio</span>
-                            </li>
-                            <li class="contact__submenu-item">
-                                <span class="contact__submenu-text">lunes</span>
-                                <span>08:00 AM - 20:00 PM</span>
-                            </li>  
-                            <li class="contact__submenu-item">
-                                <span class="contact__submenu-text">martes</span>
-                                <span>08:00 AM - 20:00 PM</span>
-                            </li> 
-                            <li class="contact__submenu-item">
-                                <span class="contact__submenu-text">miércoles</span>
-                                <span>08:00 AM - 20:00 PM</span>
-                            </li> 
-                            <li class="contact__submenu-item">
-                                <span class="contact__submenu-text">jueves</span>
-                                <span>08:00 AM - 20:00 PM</span>
-                            </li> 
-                            <li class="contact__submenu-item">
-                                <span class="contact__submenu-text">viernes</span>
-                                <span>08:00 AM - 20:00 PM</span>
-                            </li>                       
-                        </ul>                       
-                    </div>                    
-                    <div class="contact__social">
-                        <ul class="contact__social-links">
-                            <li><a class="contact__social-link" aria-label="Ir a Facebook" title="Ir a Facebook" href="https://www.facebook.com/oagersalamanca" target="_blank" rel="noreferrer"><i class="contact__icon contact__icon--white fab fa-facebook-f"></i></a></li>
-                            <li><a class="contact__social-link" aria-label="Ir a Twitter" title="Ir a Twitter" href="https://twitter.com/oagersalamanca" target="_blank" rel="noreferrer"><i class="contact__icon contact__icon--white fab fa-twitter"></i></a></li>
-                        </ul>
-                    </div>
+<body>    
+    <!-- Se mantiene este bloque por la estructura original-->
+    <div class="aspnet-form__hidden">
+        <input class="aspnet-form__input" type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDw">
+    </div>        
+    <div class="aspnet-form__hidden">        
+        <input class="aspnet-form__input" type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8D0E13E6">
+        <input class="aspnet-form__input" type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAANES/HmIxvHb8x7n1fvVNvQkWeiZP1EJJDQRE+KAa1eizD+Uaqp152WGKzUeCUMUysPHX5ixLvx743YQeY1cTyXPgzja9i3QpKi1t6JkeFBsg==">
+    </div>
+    <!------------------------------------------->
+    <header class="header">
+        <div class="header__sidebar">
+            <div class="date">
+                <i class="date__icon fas fa-calendar"></i>
+                <div class="date__container">
+                    <div class="date__hour"></div>
+                    <div class="date__day"></div>
                 </div>
             </div>
-            <div class="header__slider"></div>
-        </header>
-        <main></main>
-        <footer></footer>
-    </form>    
+            <div class="contact">
+                <div class="contact__telephone">
+                    <i class="contact__icon fas fa-phone"></i>
+                    <a class="contact__telephone-link" href="tel:+34900701000">900 701 000</a>
+                </div>
+                <div class="contact__schedule" aria-label="Ver horarios de atención" title="Horarios de atención">
+                    <i class="contact__icon fas fa-clock"></i>
+                    <span class="contact__schedule-text">Horario de atención</span>
+                    <span class="contact__schedule-state"></span>
+                    <i class="contact__icon contact__icon--light fas fa-angle-down"></i>
+                    <ul class="contact__submenu">
+                        <li class="contact__submenu-item">
+                            <span class="contact__submenu-title">Disponibilidad del servicio</span>
+                        </li>
+                        <li class="contact__submenu-item">
+                            <span class="contact__submenu-text">lunes</span>
+                            <span>08:00 AM - 20:00 PM</span>
+                        </li>  
+                        <li class="contact__submenu-item">
+                            <span class="contact__submenu-text">martes</span>
+                            <span>08:00 AM - 20:00 PM</span>
+                        </li> 
+                        <li class="contact__submenu-item">
+                            <span class="contact__submenu-text">miércoles</span>
+                            <span>08:00 AM - 20:00 PM</span>
+                        </li> 
+                        <li class="contact__submenu-item">
+                            <span class="contact__submenu-text">jueves</span>
+                            <span>08:00 AM - 20:00 PM</span>
+                        </li> 
+                        <li class="contact__submenu-item">
+                            <span class="contact__submenu-text">viernes</span>
+                            <span>08:00 AM - 20:00 PM</span>
+                        </li>                       
+                    </ul>                       
+                </div>                    
+                <div class="contact__social">
+                    <ul class="contact__social-links">
+                        <li><a class="contact__social-link" aria-label="Ir a Facebook" title="Ir a Facebook" href="https://www.facebook.com/oagersalamanca" target="_blank" rel="noreferrer"><i class="contact__icon contact__icon--white fab fa-facebook-f"></i></a></li>
+                        <li><a class="contact__social-link" aria-label="Ir a Twitter" title="Ir a Twitter" href="https://twitter.com/oagersalamanca" target="_blank" rel="noreferrer"><i class="contact__icon contact__icon--white fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header__slider">
+            <div class="slider-menu">
+                <div class="logo">
+                    <a class="logo__link" href="#" aria-label="Ir a la página principal">
+                        <img class="logo__imagen" src="assets/images/logo-oager.webp" alt="Logotipo OAGER" title="Logotipo OAGER" loading="lazy" width="448" height="919">
+                        <img class="logo__imagen" src="assets/images/logo-30oager.webp" alt="Logotipo 30 años OAGER" title="Logotipo 30 años OAGER" loading="lazy" width="862" height="1521">
+                    </a>
+                </div>
+                <nav class="main-nav" aria-label="Menú principal"> 
+                    <a class="main-nav__icon main-nav__icon--close" aria-label="Cerrar menú" title="Cerrar menú" href="#"><i class="contact__icon contact__icon--white fas fa-times"></i></a>
+                    <ul class="main-nav__menu">                               
+                        <li class="main-nav__menu-item">
+                            <a class="main-nav__menu-link main-nav__menu-link--active" aria-label="Ir a Opción 1" title="Ir a Opción 1" href="#">Inicio</a>
+                        </li>
+                        <li class="main-nav__menu-item">
+                            <a class="main-nav__menu-link" aria-label="Ir a Accesibilidad" title="Ir a Accesibilidad" href="#">Accesibilidad</a>
+                        </li>
+                        <li class="main-nav__menu-item">
+                            <a class="main-nav__menu-link" aria-label="Ir a Contacto" title="Ir a Contacto" href="#">Contacto</a>
+                        </li>
+                        <li class="main-nav__menu-item">
+                            <a class="main-nav__menu-link" aria-label="Ir a Perfil del contratante" title="Ir a Perfil del contratante" href="#">Perfil del contratante</a>
+                        </li>
+                        <li class="main-nav__menu-item">
+                            <a class="main-nav__menu-link" aria-label="Ir a Tablón de edictos" title="Ir a Tablón de edictos" href="#">Tablón de edictos</a>
+                        </li>
+                        <li class="main-nav__menu-item">
+                            <a class="main-nav__menu-link" aria-label="Ir a Bienvenida" title="Ir a Bienvenida" href="#">Bienvenida</a>
+                        </li>
+                    </ul>
+                    <form class="main-nav__search" method="post" action="./buscar.aspx?texto=" id="aspnet-form">
+                        <input name="ctl00$txtBuscar" type="search" id="ctl00_txtBuscar" class="main-nav__search-buscar" title="Buscar" placeholder="Buscar" />
+                        <input type="submit" name="ctl00$ButtonEnviar" value="" id="ctl00_ButtonEnviar" class="contact__icon contact__icon--white main-nav__search-icon fa fa-search" />
+                    </form>                        
+                    <a class="main-nav__icon" aria-label="Desplegar menú" title="Desplegar menú" href="#"><i class="contact__icon contact__icon--white fas fa-bars"></i></a>                                  
+                </nav>
+            </div>
+            <div class="slider-banner">
+                <div class="slider-banner__container">
+                    <button class="slider-banner__button slider-banner__button--prev"><i class="slider-banner__icon fas fa-angle-left"></i></button>
+                    <section class="banner" data-indice="0">                    
+                        <div class="banner__texto">
+                            <h1><abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">O.A.G.E.R.</abbr></h1>
+                            <h2>Canales de atención</h2>
+                            <p>Canales disponibles de atención al contribuyente, para realizar gestiones en <abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">OAGER</abbr> de manera telemática y/o telefónica.</p>
+                            <button class="banner__button">Contactar</button>
+                        </div>
+                        <div class="banner__picture">
+                            <img class="banner__imagen" src="assets/images/banner-contacto.webp" alt="" title="" loading="lazy" width="4473" height="3205">
+                        </div>
+                    </section>
+                    <section class="banner" data-indice="1">                    
+                        <div class="banner__texto banner__texto--reverse">
+                            <h1><abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">O.A.G.E.R.</abbr></h1>
+                            <h2>Plusvalías</h2>
+                            <p>Impuesto sobre el incremento del valor del terreno de naturaleza urbana.</p>
+                            <button class="banner__button">Sede Electrónica</button>
+                        </div>
+                        <div class="banner__picture">
+                            <img class="banner__imagen" src="assets/images/banner-tramites.webp" alt="" title="" loading="lazy" width="4473" height="3205">
+                        </div>
+                    </section>
+                    <button class="slider-banner__button slider-banner__button--next"><i class="slider-banner__icon fas fa-angle-right"></i></button>
+                </div>
+                <div class="slider-banner__indicator">
+                    <div class="slider-banner__indicator-item" data-indice="0"></div>
+                    <div class="slider-banner__indicator-item" data-indice="1"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main></main>
+    <footer></footer>      
 </body>
 </html>

@@ -1,7 +1,6 @@
 @use '../utils/funciones' as fn;
 @use '../utils/variables' as var;
 @use '../utils/mixins' as mx;
-@use '../utils/extends' as ex;
 
 /* Header */
 .header { 
@@ -17,9 +16,12 @@
         };
     }
 
-    &__slider {
-        height: fn.pxTorem(800px);
-        width: 100%;
+    &__slider {   
+        padding: 0 fn.pxTorem(100px) fn.pxTorem(100px);      
+        @include mx.createFlex(column, flex-start, flex-start) {
+            height: max-content;
+            gap: fn.pxTorem(32px);
+        };
         @include mx.addImageGradient(bottom,
                                     rgba(var.getColor('color-background-primary'), 0.7),
                                     rgba(var.getColor('color-background-primary'), 0.7),

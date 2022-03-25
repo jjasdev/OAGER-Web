@@ -19,10 +19,3 @@ $espaciado: var.getTypography('line-height');
     text-align: center;
     text-transform: uppercase;
 }
-%horario {
-    font-size: calc(var(--font-size) - .25rem);
-    font-weight: 700;
-}
-%ocultar {
-    display: none;
-}

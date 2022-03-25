@@ -72,6 +72,6 @@
         @content;
     }
 }
-@mixin addTransition($property:all) {
-    transition: $property .3s ease-in-out;
+@mixin addTransition($property:all, $time:.3s) {
+    transition: $property $time ease-in-out;
 }

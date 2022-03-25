@@ -1,5 +1,6 @@
 @use '../utils/funciones' as funciones;
 @use '../utils/mixins' as mx;
+@use '../utils/extends' as ex;
 
 /* Global */
 body {    
@@ -11,17 +12,14 @@ body {
     background-color: var(--color-background-terciary);
     color: var(--color-text);
 }
-form {
-    @include mx.createFlex(flex-start,
-                           flex-start,
-                           column);
-}
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: var(--color-title);
+    @extend %texto;
 }
 p {
     font-weight: 500;
+    @extend %texto;
 }
 ::selection {
     background-color: var(--color-primary);

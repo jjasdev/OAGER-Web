@@ -1,0 +1,84 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Navegación */
+.main-nav {        
+    place-content: center end;
+    color: rgba(var.getColor('color-light'), 0.5);
+    @include mx.createFlex(row, flex-end, center) {
+        gap: fn.pxTorem(16px);
+    };
+
+    &--open {
+        flex-direction: column;
+        gap: fn.pxTorem(50px);
+    }
+
+    &__icon {
+        &--big {
+            transform: scale(2);
+            position: absolute;
+            top: fn.pxTorem(75px); 
+            right: fn.pxTorem(100px);
+            align-self: flex-end;
+        }
+
+        &--open {
+            display: block;
+        }
+
+        &--close {
+            display: none;
+        }
+    }
+
+    &__menu {           
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: fn.pxTorem(32px);  
+        
+        &--open {
+            display: flex;
+            flex-direction: column;
+        }            
+
+        &-link {
+            font-size: var.getTypography('xxl');
+            &--active,
+            &:hover {
+                color: var(--color-light);
+            }                 
+        }
+    }
+
+    &__search {
+        @include mx.createFlex(row, flex-end, center, max-content) {
+            gap: fn.pxTorem(8px);
+        };
+
+        &--open {
+            display: none;
+            transform: scale(2);
+        }
+
+        &-buscar {
+            font-size: var.getTypography('s');
+            border-bottom: 1px solid var(--color-border);  
+            
+            &:focus{
+                outline: 0 none
+            }
+
+            &::placeholder {                    
+                color: rgba(var.getColor('color-light'), 0.5);
+            }
+        }
+
+        &-icon {
+            cursor: pointer;
+        }
+    }
+}

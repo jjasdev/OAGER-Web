@@ -1,0 +1,47 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Banner */
+.banner {    
+    grid-area: content;
+    opacity: 1;
+    z-index: 0;
+    @include mx.addTransition(opacity, .5s);
+    @include mx.createGrid(32px, auto, 50% auto) {
+        width: 100%;
+        place-items: center start;
+    };
+
+    h1 {
+        font-size: var.getTypography('xl');
+        color: var(--color-primary);
+    }
+
+    h2 {
+        font-size: var.getTypography('xxxl');
+        color: var(--color-light);
+        line-height: fn.pxToem(16px);
+    }
+
+    p {
+        padding-top: fn.pxTorem(14px);
+        font-weight: 300;
+        color: rgba(var.getColor('color-light'), 0.8);
+    }
+
+    &--hide {
+        opacity: 0;
+        z-index: -10;
+    }
+
+    &__texto {        
+        &--reverse {
+            order: 1;
+        }
+    } 
+    
+    &__picture {
+        max-height: fn.pxTorem(600px);;
+    }
+}

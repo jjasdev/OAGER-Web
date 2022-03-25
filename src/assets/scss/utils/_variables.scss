@@ -26,10 +26,14 @@ $typography: (
     'font-text': ('Roboto', sans-serif),
     'line-height': fn.pxToem(20px),
     'font-size': (
+        'xxxl': fn.changeSizeFont($font-size-default, 350, increase),
+        'xxl': fn.changeSizeFont($font-size-default, 200, increase),
+        'xl': fn.changeSizeFont($font-size-default, 100, increase),
+        'l': fn.changeSizeFont($font-size-default, 50, increase),
+        'm': fn.changeSizeFont($font-size-default, 10, increase),
         'default': $font-size-default,
-        'h1': fn.changeSizeFont($font-size-default, 100, increase),
-        'h2': fn.changeSizeFont($font-size-default, 50, increase),
-        'h3': fn.changeSizeFont($font-size-default, 20, increase),
+        's': fn.changeSizeFont($font-size-default, 20, decrease),
+        'xs': fn.changeSizeFont($font-size-default, 50, decrease),
     )    
 );
 // Media queries

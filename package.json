@@ -5,7 +5,8 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "sass": "sass --watch src/assets/scss:dist/assets/css"
+    "sass": "sass --watch src/assets/scss:dist/assets/css",
+    "imagemin": "node src/assets/js/imagemin.js"
   },
   "repository": {
     "type": "git",

@@ -13,7 +13,7 @@ html, body {
     height: 100%;
     width: 100%;
 }  
-ul, li, a {
+ul, li, a, abbr {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -22,6 +22,10 @@ ul, li, a {
 input, button {
     background-color: transparent;
     border: 0;
+}
+input::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    appearance: none;
 }
 img, picture, video, iframe, figure {
     max-width: 100%;

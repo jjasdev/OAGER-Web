@@ -1,0 +1,83 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Slider */
+.slider-menu {     
+    padding: fn.pxTorem(16px) 0;
+    z-index: 10;
+    @include mx.createGrid(20px,auto,auto 1fr) {
+        width: 100%;
+    };
+
+    &--open {
+        position: fixed;
+        top:0;
+        right:0;
+        height: 100vh;
+        overflow-x: hidden;
+        padding-top: fn.pxTorem(50px);
+        background-color: var(--color-background-primary); 
+        @include mx.createFlex(column, flex-start, center) {
+            gap: fn.pxTorem(50px);
+        };
+    }
+
+    .logo {
+        place-content: start start;
+
+        &__link {
+            @include mx.createFlex(row, flex-start, center, auto) {
+                gap: fn.pxTorem(16px);
+            };
+        }
+
+        &__imagen {
+            height: fn.pxTorem(80px);
+            place-content: center end;
+            @include mx.addTransition(height); 
+        }        
+    }
+    
+}
+
+.slider-banner {
+    @include mx.createFlex(column, center, center) {
+        gap: fn.pxTorem(32px);
+    };
+
+    &__container {
+        @include mx.createGrid(32px,
+                                auto,
+                                1fr auto,
+                                'prev content next') {
+            width: 100%;
+        };
+    }
+
+    &__indicator {
+        @include mx.createFlex(row, center, center) {
+            gap: fn.pxTorem(8px);
+        };
+
+        &-item {
+            width: fn.pxTorem(20px); 
+            height: fn.pxTorem(3px); 
+            background-color: rgba(var.getColor('color-light'), 0.8);
+
+            &--active {
+                background-color: var(--color-primary);
+            }
+        }
+    }
+
+    &__button {
+        &--prev {
+            grid-area: prev;
+        }
+
+        &--next {
+            grid-area: next;
+        }
+    }
+}

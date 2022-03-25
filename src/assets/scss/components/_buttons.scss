@@ -4,3 +4,16 @@
 @use '../utils/extends' as ex;
 
 /* Buttons */
+.banner__button {
+    margin-block: fn.pxTorem(16px);
+    padding: fn.pxTorem(16px) fn.pxTorem(32px);
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    cursor: pointer;
+
+    &:hover {
+        opacity: .8;
+    }
+}

@@ -1,7 +1,6 @@
 @use '../utils/funciones' as fn;
 @use '../utils/variables' as var;
 @use '../utils/mixins' as mx;
-@use '../utils/extends' as ex;
 
 /* Sidebar */
 .date {
@@ -57,11 +56,12 @@
 
         &:hover > .contact__submenu {            
             @include mx.createFlex(column, center, center, auto); 
-            transition: display .5s;
+            @include mx.addTransition(display); 
         }
 
         &-state {            
-            @extend %horario;
+            font-size: var.getTypography('s');;
+            font-weight: 700;
             
             &--open {
                 color: lighten(var.getColor('color-success'), 25%);
