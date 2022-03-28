@@ -75,6 +75,7 @@
 
     &__submenu {     
         display: none; 
+        z-index: 10;
         @include mx.addNeo(3px, var(--color-background-primary), 5px);
         @include mx.createSubmenu {
             top: fn.pxTorem(50px);

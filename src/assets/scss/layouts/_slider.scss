@@ -5,18 +5,18 @@
 /* Slider */
 .slider-menu {     
     padding: fn.pxTorem(16px) 0;
-    z-index: 10;
     @include mx.createGrid(20px,auto,auto 1fr) {
         width: 100%;
     };
 
     &--open {
+        padding-top: fn.pxTorem(50px);
+        height: 100vh;
+        z-index: 20;
         position: fixed;
         top:0;
         right:0;
-        height: 100vh;
         overflow-x: hidden;
-        padding-top: fn.pxTorem(50px);
         background-color: var(--color-background-primary); 
         @include mx.createFlex(column, flex-start, center) {
             gap: fn.pxTorem(50px);
@@ -42,6 +42,7 @@
 }
 
 .slider-banner {
+    padding-bottom: fn.pxTorem(50px);
     @include mx.createFlex(column, center, center) {
         gap: fn.pxTorem(32px);
     };

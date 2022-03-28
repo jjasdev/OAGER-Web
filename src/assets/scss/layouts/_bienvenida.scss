@@ -1,0 +1,113 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Bienvenida */
+.bienvenida {
+    padding: 0 fn.pxTorem(100px); 
+    background-color: var(--color-background-primary);
+
+    .accesos-directos {
+        padding: fn.pxTorem(16px);
+        transform: translateY(-50%);
+        text-align: center;
+        @include mx.addNeo(5px, var(--color-light), 3px);
+        @include mx.createFlex(row, center, flex-start);
+
+        &:hover .accesos-directos__item {
+            filter:blur(2px);
+            transform: scale(.98);
+        }
+
+        &:hover .accesos-directos__item:hover {
+            filter:blur(0px);
+            transform: scale(1.1);
+        }
+
+        &__item {
+            margin-top: fn.pxTorem(-50px);
+            height: max-content;
+            min-width: fn.pxTorem(150px);
+            width: 100%;
+
+            &:hover {
+                
+                @include mx.addTransition(transform);
+            }
+        }
+
+        &__link {
+            position: relative;
+            @include mx.createFlex(column, center, center)  {
+                gap: fn.pxTorem(16px);
+            };
+        }
+
+        &__container-icon {
+            position: relative;
+            @include mx.createPseudoelement(before) {
+                background: var(--color-light);
+                width: fn.pxTorem(80px);
+                height: fn.pxTorem(80px);
+                left: fn.pxTorem(-28px);
+                top: 0;
+                border-radius: 4px;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+            @include mx.createPseudoelement(after) {
+                background: var(--color-primary);
+                width: fn.pxTorem(80px);
+                height: fn.pxTorem(80px);
+                left: fn.pxTorem(-28px);
+                top: -10px;
+                border-radius: 4px;
+                transform: rotate(45deg);
+                z-index: -2;
+            }
+        }
+
+        &__text {
+            text-transform: capitalize;
+        }
+    }
+
+    &__container { 
+        color: rgba(var.getColor('color-light'), 0.8);
+        @include mx.createGrid(20px,auto, 60% 40%) {
+            width: 100%;
+            align-items: center;
+        }; 
+    }
+
+    &__discurso {
+        h2 {
+            font-size: var.getTypography('xxl');
+            color: var(--color-primary);
+        }
+        &-texto {
+            padding-bottom: fn.pxTorem(20px); 
+            padding-top: fn.pxTorem(30px); 
+            font-family: 'Kalam', cursive;
+            font-weight: 400;
+            font-size: var.getTypography('m');
+            
+            &::first-letter {
+                font-size: var.getTypography('xxl');
+            }
+        }
+
+        &-cargo {
+            font-weight: 300;
+        }
+    }
+
+    &__picture {        
+        justify-self: center;
+
+        &-imagen {
+            max-height: fn.pxTorem(400px);
+            filter: drop-shadow(3px 3px 6px var(--color-light));
+        }
+    }
+}

@@ -156,6 +156,12 @@ p {
   color: var(--color-light);
 }
 
+.accesos-directos__icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-top: 1rem;
+}
+
 /* Header */
 .header {
   display: flex;
@@ -266,6 +272,7 @@ p {
 }
 .contact__submenu {
   display: none;
+  z-index: 10;
   border-radius: 3px;
   background-color: var(--color-background-primary);
   box-shadow: 5px 5px 10px var(--color-background-primary), -5px -5px 10px rgba(32, 33, 48, 0.125);
@@ -313,7 +320,6 @@ p {
 /* Slider */
 .slider-menu {
   padding: 1rem 0;
-  z-index: 10;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto 1fr;
@@ -321,12 +327,13 @@ p {
   width: 100%;
 }
 .slider-menu--open {
+  padding-top: 3.125rem;
+  height: 100vh;
+  z-index: 20;
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
   overflow-x: hidden;
-  padding-top: 3.125rem;
   background-color: var(--color-background-primary);
   display: flex;
   flex-direction: column;
@@ -353,6 +360,7 @@ p {
 }
 
 .slider-banner {
+  padding-bottom: 3.125rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -498,6 +506,114 @@ p {
 }
 .banner__picture {
   max-height: 37.5rem;
+}
+
+/* Bienvenida */
+.bienvenida {
+  padding: 0 6.25rem;
+  background-color: var(--color-background-primary);
+}
+.bienvenida .accesos-directos {
+  padding: 1rem;
+  transform: translateY(-50%);
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--color-light);
+  box-shadow: 3px 3px 6px var(--color-light), -3px -3px 6px rgba(32, 33, 48, 0.125);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+.bienvenida .accesos-directos:hover .accesos-directos__item {
+  filter: blur(2px);
+  transform: scale(0.98);
+}
+.bienvenida .accesos-directos:hover .accesos-directos__item:hover {
+  filter: blur(0px);
+  transform: scale(1.1);
+}
+.bienvenida .accesos-directos__item {
+  margin-top: -3.125rem;
+  height: max-content;
+  min-width: 9.375rem;
+  width: 100%;
+}
+.bienvenida .accesos-directos__item:hover {
+  transition: transform 0.3s ease-in-out;
+}
+.bienvenida .accesos-directos__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+.bienvenida .accesos-directos__container-icon {
+  position: relative;
+}
+.bienvenida .accesos-directos__container-icon::before {
+  position: absolute;
+  content: "";
+  background: var(--color-light);
+  width: 5rem;
+  height: 5rem;
+  left: -1.75rem;
+  top: 0;
+  border-radius: 4px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.bienvenida .accesos-directos__container-icon::after {
+  position: absolute;
+  content: "";
+  background: var(--color-primary);
+  width: 5rem;
+  height: 5rem;
+  left: -1.75rem;
+  top: -10px;
+  border-radius: 4px;
+  transform: rotate(45deg);
+  z-index: -2;
+}
+.bienvenida .accesos-directos__text {
+  text-transform: capitalize;
+}
+.bienvenida__container {
+  color: rgba(255, 255, 255, 0.8);
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 60% 40%;
+  gap: 1.25rem;
+  width: 100%;
+  align-items: center;
+}
+.bienvenida__discurso h2 {
+  font-size: 3rem;
+  color: var(--color-primary);
+}
+.bienvenida__discurso-texto {
+  padding-bottom: 1.25rem;
+  padding-top: 1.875rem;
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+.bienvenida__discurso-texto::first-letter {
+  font-size: 3rem;
+}
+.bienvenida__discurso-cargo {
+  font-weight: 300;
+}
+.bienvenida__picture {
+  justify-self: center;
+}
+.bienvenida__picture-imagen {
+  max-height: 25rem;
+  filter: drop-shadow(3px 3px 6px var(--color-light));
 }
 
 /*# sourceMappingURL=style.css.map */

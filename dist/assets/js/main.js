@@ -164,8 +164,15 @@ function rellenarCeros(numero, longitudCifra) {
             contentBanner.item(index).setAttribute('data-active', 'true');
         }
     }
-    //Marcamos el indicador
-    indicatorBanner.item(configSlider.indiceBanner).classList.add('slider-banner__indicator-item--active');
+    //Creamos los indicadores    
+    for (let indice = 0; indice < configSlider.numeroBanners; indice++) {
+        let indicator = document.createElement('div');
+        indicator.classList.add('slider-banner__indicator-item');
+        indicator.setAttribute("data-indice", indice);
+        indicatorContainer.append(indicator);
+    }    
+    //Marcamos el indicador inicial
+    indicatorContainer.firstElementChild.classList.add('slider-banner__indicator-item--active');
 }
 /**
   * Muestra un nuevo banner en función si se ha indicado que sea el anterior o el posterior
@@ -173,6 +180,7 @@ function rellenarCeros(numero, longitudCifra) {
   * @returns {void}
   */
  function mostrarNuevoBanner(tipoBoton){ 
+    const indicatorBanner = document.querySelectorAll(".slider-banner__indicator-item");
     let indiceNuevoBanner = 0;
     if (tipoBoton.includes('prev')) {
         //Comprobamos en qué banner nos encontramos.       
@@ -230,7 +238,7 @@ iconMenuClose.addEventListener('click', desplegarMenu);
 const botonPrev = document.querySelector(".slider-banner__button--prev");
 const botonNext = document.querySelector(".slider-banner__button--next");
 const contentBanner = document.querySelectorAll(".banner");
-const indicatorBanner = document.querySelectorAll(".slider-banner__indicator-item");
+const indicatorContainer = document.querySelector(".slider-banner__indicator");
 configSlider.numeroBanners = contentBanner.length;
 //Solo mostramos el carrusel si tiene más de un banner
 if (configSlider.numeroBanners > 1) {

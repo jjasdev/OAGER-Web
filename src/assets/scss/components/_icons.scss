@@ -24,11 +24,16 @@
     }
 }
 .slider-banner__icon {
-    font-size: var.getTypography('xxl');;
+    font-size: var.getTypography('xxl');
     color: rgba(var.getColor('color-light'), 0.8);
     cursor: pointer;
 
     &:hover {
         color: var(--color-light);
     }
+}
+.accesos-directos__icon {
+    font-size: var.getTypography('xl');
+    color: var(--color-primary); 
+    margin-top: fn.pxTorem(16px) ; 
 }

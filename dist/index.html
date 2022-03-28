@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Roboto:wght@300;500;700;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Oswald:wght@300;500;700&family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/no-prefix.min.js"></script>
@@ -144,14 +144,67 @@
                     </section>
                     <button class="slider-banner__button slider-banner__button--next"><i class="slider-banner__icon fas fa-angle-right"></i></button>
                 </div>
-                <div class="slider-banner__indicator">
-                    <div class="slider-banner__indicator-item" data-indice="0"></div>
-                    <div class="slider-banner__indicator-item" data-indice="1"></div>
-                </div>
+                <div class="slider-banner__indicator"></div>
             </div>
         </div>
     </header>
-    <main></main>
+    <main>
+        <div class="bienvenida">
+            <ul class="accesos-directos">
+                <li class="accesos-directos__item">
+                    <a class="accesos-directos__link" aria-label="Ir a Certificado Firma digital" title="Ir a Certificado Firma digital" href="#">
+                        <div class="accesos-directos__container-icon">
+                            <i class="accesos-directos__icon fas fa-file-signature"></i>
+                        </div>
+                        <span class="accesos-directos__text">Certificado firma digital</span>
+                    </a>                        
+                </li>
+                <li class="accesos-directos__item">
+                    <a class="accesos-directos__link" aria-label="Ir a Certificados catastrales" title="Ir a Certificados catastrales" href="#">
+                        <div class="accesos-directos__container-icon">
+                            <i class="accesos-directos__icon fas fa-laptop-house"></i>
+                        </div>
+                        <span class="accesos-directos__text">Certificados catastrales</span>
+                    </a>                        
+                </li>
+                <li class="accesos-directos__item">
+                    <a class="accesos-directos__link" aria-label="Ir a Autoliquidaciones" title="Ir a Autoliquidaciones" href="#">
+                        <div class="accesos-directos__container-icon">
+                            <i class="accesos-directos__icon fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <span class="accesos-directos__text">Autoliquidaciones</span>
+                    </a>                        
+                </li>
+                <li class="accesos-directos__item">
+                    <a class="accesos-directos__link" aria-label="Ir a Sede electrónica" title="Ir a Sede electrónica" href="#">
+                        <div class="accesos-directos__container-icon">
+                            <i class="accesos-directos__icon fas fa-mouse"></i>
+                        </div>
+                        <span class="accesos-directos__text">Sede electrónica</span>
+                    </a>                        
+                </li>
+                <li class="accesos-directos__item">
+                    <a class="accesos-directos__link" aria-label="Ir a Defensor del contribuyente" title="Ir a Defensor del contribuyente" href="#">
+                        <div class="accesos-directos__container-icon">
+                            <i class="accesos-directos__icon fas fa-user"></i>
+                        </div>
+                        <span class="accesos-directos__text">Defensor del contribuyente</span>
+                    </a>                        
+                </li>
+            </ul>
+            <section class="bienvenida__container">
+                <div class="bienvenida__discurso">
+                    <h2>Bienvenida</h2>
+                    <p class="bienvenida__discurso-texto">"Como alcalde de Salamanca, quiero darte la bienvenida a la página web del Organismo Autónomo de Gestión Económica y Recaudación (OAGER), un portal abierto para acercar la Administración municipal al ciudadano, darnos a conocer y facilitarte los trámites diarios".</p>
+                    <p class="bienvenida__discurso-nombre">Carlos García Carbayo</p>
+                    <p class="bienvenida__discurso-cargo">Alcalde de Salamanca</p>
+                </div>
+                <div class="bienvenida__picture">
+                    <img class="bienvenida__picture-imagen" src="assets/images/alcalde-salamanca.webp" alt="" title="" loading="lazy" width="4473" height="3205">
+                </div>
+            </section>
+        </div>
+    </main>
     <footer></footer>      
 </body>
 </html>
