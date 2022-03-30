@@ -1,0 +1,37 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+@use '../utils/extends' as ex;
+
+/* Indicators */
+.slider-banner__indicator {
+    @include mx.createFlex(row, center, center) {
+        gap: fn.pxTorem(8px);
+    };
+
+    &-item {
+        width: fn.pxTorem(20px); 
+        height: fn.pxTorem(3px); 
+        background-color: rgba(var.getColor('color-light'), 0.8);
+
+        &--active {
+            background-color: var(--color-primary);
+        }
+    }
+}
+
+.avisos__indicator {
+    @include mx.createFlex(row, center, center) {
+        gap: fn.pxTorem(8px);
+    };
+
+    &-item {
+        width: fn.pxTorem(20px); 
+        height: fn.pxTorem(3px); 
+        background-color: var(--color-background-primary);
+
+        &--active {
+            background-color: var(--color-primary);
+        }
+    }
+}

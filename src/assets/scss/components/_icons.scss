@@ -37,3 +37,13 @@
     color: var(--color-primary); 
     margin-top: fn.pxTorem(16px) ; 
 }
+
+.avisos__icon {
+    font-size: var.getTypography('l');
+    color: var(--color-title);
+    cursor: pointer;
+    
+    &:hover {
+        color: var(--color-primary);
+    }
+}

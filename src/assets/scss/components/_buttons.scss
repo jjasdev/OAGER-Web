@@ -17,3 +17,13 @@
         opacity: .8;
     }
 }
+
+.slider-banner__button {
+    &--prev {
+        grid-area: prev;
+    }
+
+    &--next {
+        grid-area: next;
+    }
+}

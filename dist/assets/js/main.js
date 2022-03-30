@@ -10,24 +10,27 @@
  /**
  * Tipo de dato Slider
  * @typedef {Object} Slider
- * @property {number} indiceBanner Indice correspondiente de cada banner
- * @property {number} numeroBanners Número de banner que se van a mostrar
- * @property {number} tiempoBanner Tiempo que transcurre entre banner y banner
+ * @property {number} indice Indice correspondiente de cada elemento
+ * @property {number} tiempo Tiempo que transcurre entre elemento y elemento
  */
 /**
-  * Configuración por defecto del slider
+  * Configuración por defecto del slider de banners
   * @type {Slider}
   */
-    const configSlider = {
-        indiceBanner: 0,
-        numeroBanners: 1,
-        tiempoBanner: 8000
+    const configSliderBanners = {
+        indice: 0,
+        tiempo: 8000
     }
   /**
   * Array con los botones para avanzar en la muestra de banners en el slider
   * @type {Array}
   */
    let botonesSlider = [ "prev", "next" ];
+   /**
+  * Array con los botones para avanzar en la muestra de banners en el slider
+  * @type {Array}
+  */
+    let typesAvisos = [ "noticia", "aviso" ];
   /**
   * Array con los nombres de los meses del año
   * @type {Array}
@@ -151,73 +154,136 @@ function rellenarCeros(numero, longitudCifra) {
     }    
 }
 /**
-  * Muestra por defecto el banner que hemos establecido en la configuración y le asocia su indicador
+  * Muestra por defecto el elemento que hemos establecido en la configuración y le asocia su indicador
+  * @param {NodeList} nodosElemento Contenedores que alojan los elementos
+  * @param {number} elementoInicial Índice del elemento a mostrar inicialmente
+  * @param {Node} nodoIndicador Contenedor que aloja los indicadores
+  * @param {number} numeroElementos Número de elementos a mostrar
   * @returns {void}
   */
- function configurarBanner(){ 
+ function configurarSlider(nodosElemento, elementoInicial, nodoIndicador, numeroElementos){ 
      //Mostramos únicamente un banner, el resto los ocultamos
-    for (let index = 0; index < configSlider.numeroBanners; index++) {
-        if (index !== configSlider.indiceBanner) {
-            contentBanner.item(index).setAttribute('data-active', 'false');
-            contentBanner.item(index).classList.add('banner--hide');
+    for (let index = 0; index < numeroElementos; index++) {
+        if (index !== elementoInicial) {
+            nodosElemento.item(index).setAttribute('data-active', 'false');
+            nodosElemento.item(index).classList.add(`${nodosElemento.item(index).className}--hide`);
         } else {
-            contentBanner.item(index).setAttribute('data-active', 'true');
+            nodosElemento.item(index).setAttribute('data-active', 'true');
         }
     }
     //Creamos los indicadores    
-    for (let indice = 0; indice < configSlider.numeroBanners; indice++) {
-        let indicator = document.createElement('div');
-        indicator.classList.add('slider-banner__indicator-item');
-        indicator.setAttribute("data-indice", indice);
-        indicatorContainer.append(indicator);
-    }    
-    //Marcamos el indicador inicial
-    indicatorContainer.firstElementChild.classList.add('slider-banner__indicator-item--active');
+    crearIndicadores(nodoIndicador, numeroElementos)
 }
 /**
-  * Muestra un nuevo banner en función si se ha indicado que sea el anterior o el posterior
-  * @param {string} tipoBoton Tipo de botón seleccionado (anterior o posterior)
+  * Crea los indicadores correspondientes y marca el inicial
+  * @param {Node} nodoIndicador Contenedor que aloja los indicadores
+  * @param {number} numeroElementos Número de indicadores
   * @returns {void}
   */
- function mostrarNuevoBanner(tipoBoton){ 
-    const indicatorBanner = document.querySelectorAll(".slider-banner__indicator-item");
-    let indiceNuevoBanner = 0;
+ function crearIndicadores(nodoIndicador, numeroElementos){ 
+   //Creamos los indicadores    
+   for (let indice = 0; indice < numeroElementos; indice++) {
+       let indicator = document.createElement('div');
+       indicator.classList.add(`${nodoIndicador.className}-item`);
+       indicator.setAttribute("data-indice", String(indice));
+       nodoIndicador.append(indicator);
+   }    
+   //Marcamos el indicador inicial
+   nodoIndicador.firstElementChild.classList.add(`${nodoIndicador.className}-item--active`);
+}
+/**
+  * Muestra un nuevo elemento en función de si se ha indicado que sea el anterior o el posterior
+  * @param {string} tipoBoton Tipo de botón seleccionado (anterior o posterior)
+  * @param {NodeList} nodosElemento Contenedores que alojan los elementos
+  * @param {Node} nodoIndicador Contenedor que aloja los indicadores
+  * @param {number} numeroElementos Número de elementos del nodo
+  * @returns {void}
+  */
+ function mostrarNuevoElemento(tipoBoton, nodosElemento, nodoIndicador, numeroElementos){ 
+    const indicators = document.querySelectorAll(`.${nodoIndicador.className}-item`);
+    let indiceNuevoElemento = 0;
+    let claseNodo = '';
     if (tipoBoton.includes('prev')) {
-        //Comprobamos en qué banner nos encontramos.       
-        contentBanner.forEach((banner)=> {
-            if(banner.getAttribute('data-active') === 'true') {
-                banner.classList.add('banner--hide');
-                banner.setAttribute('data-active', 'false');
-                indicatorBanner.item(Number(banner.getAttribute('data-indice'))).classList.remove('slider-banner__indicator-item--active');
+        //Comprobamos en qué elemento nos encontramos.       
+        nodosElemento.forEach((elemento, index)=> {
+            if(elemento.getAttribute('data-active') === 'true') {
+                claseNodo = `${nodosElemento[index].className}`;
+                elemento.classList.add(`${nodosElemento[index].className}--hide`);
+                elemento.setAttribute('data-active', 'false');
+                indicators.item(Number(elemento.getAttribute('data-indice'))).classList.remove(`${nodoIndicador.className}-item--active`);
                 //Si estamos en el primero mostramos el último y sino mostramos el anterior
-                if (banner.getAttribute('data-indice') === '0') { 
-                    indiceNuevoBanner = configSlider.numeroBanners - 1;                      
+                if (elemento.getAttribute('data-indice') === '0') { 
+                    indiceNuevoElemento = numeroElementos - 1;                      
                 } else {
-                    indiceNuevoBanner = Number(banner.getAttribute('data-indice')) - 1;
+                    indiceNuevoElemento = Number(elemento.getAttribute('data-indice')) - 1;
                 }
             }
         });                       
     } else if (tipoBoton.includes('next')) {
-        //Comprobamos en qué banner nos encontramos.       
-        contentBanner.forEach((banner)=> {
-            if(banner.getAttribute('data-active') === 'true') {
-                banner.classList.add('banner--hide');
-                banner.setAttribute('data-active', 'false');
-                indicatorBanner.item(Number(banner.getAttribute('data-indice'))).classList.remove('slider-banner__indicator-item--active');
+        //Comprobamos en qué elemento nos encontramos.       
+        nodosElemento.forEach((elemento, index)=> {
+            if(elemento.getAttribute('data-active') === 'true') {
+                claseNodo = `${nodosElemento[index].className}`;
+                elemento.classList.add(`${nodosElemento[index].className}--hide`);
+                elemento.setAttribute('data-active', 'false');
+                indicators.item(Number(elemento.getAttribute('data-indice'))).classList.remove(`${nodoIndicador.className}-item--active`);
                 //Si estamos en el último mostramos el primero y sino mostramos el posterior
-                if (banner.getAttribute('data-indice') === String(configSlider.numeroBanners - 1)) { 
-                    indiceNuevoBanner = 0;                      
+                if (elemento.getAttribute('data-indice') === String(numeroElementos - 1)) { 
+                    indiceNuevoElemento = 0;                      
                 } else {
-                    indiceNuevoBanner = Number(banner.getAttribute('data-indice')) + 1;
+                    indiceNuevoElemento = Number(elemento.getAttribute('data-indice')) + 1;
                 }
             }
         });
     }
-    //Activamos el nuevo banner y marcamos el indicador corresponidente
-    contentBanner.item(indiceNuevoBanner).classList.remove('banner--hide');
-    contentBanner.item(indiceNuevoBanner).setAttribute('data-active', 'true');
-    indicatorBanner.item(indiceNuevoBanner).classList.add('slider-banner__indicator-item--active');
+    //Activamos el nuevo elemento y marcamos el indicador corresponidente
+    nodosElemento.item(indiceNuevoElemento).classList.remove(`${claseNodo}--hide`);
+    nodosElemento.item(indiceNuevoElemento).setAttribute('data-active', 'true');
+    indicators.item(indiceNuevoElemento).classList.add(`${nodoIndicador.className}-item--active`);
 }
+/**
+  * Muestra diferentes avisos en función del tipo seleccionado
+  * @param {NodeList} nodoAvisos Contenedor que aloja los nodos de un tipo de aviso
+  * @returns {void}
+  */
+ function configurarAvisos(nodoAvisos){ 
+    let numeroAvisos = nodoAvisos.length;
+    //Solo mostramos el carrusel si tiene más de un aviso
+    if (numeroAvisos > 1) {
+        botonPrevAvisos.style.display = 'block';
+        botonNextAvisos.style.display = 'block';
+        indicatorContainerAvisos.style.display = 'flex';
+        configurarSlider(nodoAvisos, 0, indicatorContainerAvisos, numeroAvisos);        
+    } else {
+        botonPrevAvisos.style.display = 'none';
+        botonNextAvisos.style.display = 'none';
+        indicatorContainerAvisos.style.display = 'none';
+    }
+ }
+ /**
+  * Oculta los nodos seleccionados
+  * @param {NodeList} nodoAvisos Contenedor que aloja los nodos de un tipo de aviso
+  * @returns {void}
+  */
+  function ocultarAvisos(nodoAvisos){ 
+    nodoAvisos.forEach((elemento, index)=> {
+        if (nodoAvisos[index].classList.length === 1) {
+            elemento.classList.add(`${nodoAvisos[index].className}--hide`);
+        }
+    });
+ }
+ /**
+  * Muestra los nodos seleccionados
+  * @param {NodeList} nodoAvisos Contenedor que aloja los nodos de un tipo de aviso
+  * @returns {void}
+  */
+  function mostrarAvisos(nodoAvisos){ 
+    nodoAvisos.forEach((elemento, index)=> {
+        if (nodoAvisos[index].classList.length > 1) {
+            elemento.classList.remove(nodoAvisos[index].classList[1]);
+        }        
+    });
+ }
 
 //--CÓDIGO
 //Establecer fechas y pintar horarios
@@ -235,30 +301,112 @@ iconMenuOpen.addEventListener('click', desplegarMenu);
 iconMenuClose.addEventListener('click', desplegarMenu);
 
 //Slider
-const botonPrev = document.querySelector(".slider-banner__button--prev");
-const botonNext = document.querySelector(".slider-banner__button--next");
+const botonPrevSlider = document.querySelector(".slider-banner__button--prev");
+const botonNextSlider = document.querySelector(".slider-banner__button--next");
 const contentBanner = document.querySelectorAll(".banner");
-const indicatorContainer = document.querySelector(".slider-banner__indicator");
-configSlider.numeroBanners = contentBanner.length;
+const indicatorContainerSlider = document.querySelector(".slider-banner__indicator");
 //Solo mostramos el carrusel si tiene más de un banner
-if (configSlider.numeroBanners > 1) {
-    configurarBanner();
-    botonPrev.addEventListener("click", (event) =>{       
+if (contentBanner.length > 1) {
+    configurarSlider(contentBanner, configSliderBanners.indice, indicatorContainerSlider, contentBanner.length);
+    botonPrevSlider.addEventListener("click", (event) =>{       
         event.preventDefault();    
-        mostrarNuevoBanner(botonesSlider[0]);
+        mostrarNuevoElemento(botonesSlider[0], contentBanner, indicatorContainerSlider, contentBanner.length);
     });
-    botonNext.addEventListener("click", (event) =>{       
+    botonNextSlider.addEventListener("click", (event) =>{       
         event.preventDefault();    
-        mostrarNuevoBanner(botonesSlider[1]);
+        mostrarNuevoElemento(botonesSlider[1], contentBanner, indicatorContainerSlider, contentBanner.length);
     });
     //Motrar banners en el slider automáticamente
     setInterval(()=> {        
-        mostrarNuevoBanner(botonesSlider[1]);
-    }, configSlider.tiempoBanner);
+        mostrarNuevoElemento(botonesSlider[1], contentBanner, indicatorContainerSlider, contentBanner.length);
+    }, configSliderBanners.tiempo);
 } else {
-    botonPrev.style.display = 'none';
-    botonNext.style.display = 'none';
-    indicatorBanner.forEach(item => item.style.display = 'none')
+    botonPrevSlider.style.display = 'none';
+    botonNextSlider.style.display = 'none';
+    indicatorContainerSlider.style.display = 'none';
 }
+
+//Avisos
+const avisos = document.querySelector(".avisos");
+const botonPrevAvisos = document.querySelector(".avisos__button--prev");
+const botonNextAvisos = document.querySelector(".avisos__button--next");
+const contentNoticias = document.querySelectorAll('.avisos__notification[data-type="noticia"]');
+const contentAvisos = document.querySelectorAll('.avisos__notification[data-type="aviso"]');
+const indicatorContainerAvisos = document.querySelector(".avisos__indicator"); 
+const tabNoticias = document.querySelector('.avisos__tabs-item[data-type="noticia"]');
+const tabAvisos = document.querySelector('.avisos__tabs-item[data-type="aviso"]');
+
+//Por defecto mostramos los avisos del tipo NOTICIA
+ocultarAvisos(contentAvisos);
+configurarAvisos(contentNoticias);
+tabNoticias.addEventListener("click", () =>{        
+    tabNoticias.classList.remove('avisos__tabs-item--no-active');
+    tabNoticias.classList.add('avisos__tabs-item--active');
+    tabAvisos.classList.add('avisos__tabs-item--no-active');
+    tabAvisos.classList.remove('avisos__tabs-item--active');
+    for (let i = indicatorContainerAvisos.childNodes.length - 1; i >= 0; i--) {
+        indicatorContainerAvisos.removeChild(indicatorContainerAvisos.childNodes[i]);
+    } 
+    ocultarAvisos(contentAvisos);
+    mostrarAvisos(contentNoticias);
+    configurarAvisos(contentNoticias);
+});
+tabAvisos.addEventListener("click", () =>{       
+    tabAvisos.classList.remove('avisos__tabs-item--no-active');
+    tabAvisos.classList.add('avisos__tabs-item--active');
+    tabNoticias.classList.add('avisos__tabs-item--no-active');
+    tabNoticias.classList.remove('avisos__tabs-item--active');
+    for (let i = indicatorContainerAvisos.childNodes.length - 1; i >= 0; i--) {
+        indicatorContainerAvisos.removeChild(indicatorContainerAvisos.childNodes[i]);
+    }
+    ocultarAvisos(contentNoticias);
+    mostrarAvisos(contentAvisos);
+    configurarAvisos(contentAvisos);
+});
+avisos.addEventListener("click", (event) =>{    
+    //Arrows avance 
+    if(event.target.classList.contains('fa-angle-left')){
+        if (event.target.parentNode.parentNode.parentNode.previousElementSibling.firstElementChild.className === 'avisos__tabs-item avisos__tabs-item--active') {
+            mostrarNuevoElemento(botonesSlider[0], contentNoticias, indicatorContainerAvisos, contentNoticias.length);
+        } else if (event.target.parentNode.parentNode.parentNode.previousElementSibling.firstElementChild.className === 'avisos__tabs-item avisos__tabs-item--no-active') {
+            mostrarNuevoElemento(botonesSlider[0], contentAvisos, indicatorContainerAvisos, contentAvisos.length);
+        }         
+    }
+    if(event.target.classList.contains('fa-angle-right')){
+        if (event.target.parentNode.parentNode.parentNode.previousElementSibling.firstElementChild.className === 'avisos__tabs-item avisos__tabs-item--active') {
+            mostrarNuevoElemento(botonesSlider[1], contentNoticias, indicatorContainerAvisos, contentNoticias.length);
+        } else if (event.target.parentNode.parentNode.parentNode.previousElementSibling.firstElementChild.className === 'avisos__tabs-item avisos__tabs-item--no-active') {
+            mostrarNuevoElemento(botonesSlider[1], contentAvisos, indicatorContainerAvisos, contentAvisos.length);
+        }        
+    }
+    //Leer más
+    if(event.target.classList.contains('avisos__notification-leer-mas')){
+        event.preventDefault();
+        event.target.previousElementSibling.classList.toggle("avisos__notification-texto--acortar");
+        if(event.target.previousElementSibling.classList.contains('avisos__notification-texto--acortar')){
+            event.target.innerHTML = 'Leer más [+]'
+        } else {
+            event.target.innerHTML = 'Leer menos [-]'
+        }
+    }
+});
+
+//Leer más
+const texto = document.querySelectorAll('.avisos__notification-texto');
+texto.forEach(elemento=> {
+    //Queremos limitar el número de palabras a mostrar
+    let textoAviso = elemento.innerHTML;
+    let numeroPalabras = textoAviso.split(" ").length;
+
+    if (numeroPalabras >= 60) {
+        elemento.nextElementSibling.style.display = 'block';
+        elemento.classList.add('avisos__notification-texto--acortar');
+    } else {
+        elemento.nextElementSibling.style.display = 'none';        
+    }
+});
+
+
+
 
 

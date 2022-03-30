@@ -1,0 +1,125 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Avisos */
+.avisos {
+    margin-top: fn.pxTorem(-56px);
+    background-color: var(--color-background-primary);
+
+    &__tabs {
+        margin-left: fn.pxTorem(350px);
+        text-transform: uppercase;
+        @include mx.createFlex(row, flex-start, center, auto) {
+            gap: fn.pxTorem(16px);
+        };
+
+        &-item {            
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom: 5px solid var(--color-light);
+            padding: fn.pxTorem(16px);
+            background-color: var(--color-light);            
+            cursor: pointer;
+
+            &--active {
+                color: var(--color-primary);
+            }
+            &--no-active {                
+                border-bottom: 5px solid var(--color-background-primary);
+            }
+        }
+    }
+
+    &__container {
+        margin-left: fn.pxTorem(350px);
+        background-color: var(--color-light);
+        @include mx.createGrid(0px, 
+                                repeat(3, auto),
+                                1fr,
+                                'arrows'
+                                'notificacion'
+                                'indicator') {
+            height: max-content;
+            width: calc(100% - fn.pxTorem(350px));
+        };
+    }
+
+    &__notification {
+        position: relative;
+        padding: fn.pxTorem(16px);
+        margin: fn.pxTorem(16px);
+        opacity: 1;
+        z-index: 0;
+        grid-area: notificacion;
+
+        &--hide {
+            opacity: 0;
+            z-index: -10;
+        }
+
+        &-fecha {
+            padding: fn.pxTorem(16px);            
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align: right;
+            background-color: var(--color-background-primary);
+            color: var(--color-light);
+        }
+
+        &-tag {
+            position: absolute;
+            padding: fn.pxTorem(8px) fn.pxTorem(16px);
+            top: 0;
+            left: 0;
+            border-radius: 3px;
+            font-size: var.getTypography('s');
+            color: var(--color-light);
+            background-color: var(--color-primary);
+        }
+
+        &-box {
+            padding: fn.pxTorem(16px); 
+            border-left: 5px solid var(--color-background-primary);
+            border-bottom: 5px solid var(--color-background-primary);
+            border-right: 5px solid var(--color-background-primary);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            @include mx.createFlex(column, flex-start, flex-start);
+        }
+
+        &-texto {
+            line-height: 1.2em;
+            &--acortar {
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
+
+        &-leer-mas {
+            padding-top: fn.pxTorem(16px); 
+            margin-top: fn.pxTorem(16px); 
+            width: 100%; 
+            border-top: 3px solid var(--color-border);
+
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+
+    &__indicator {
+        grid-area: indicator;
+        @include mx.createFlex(row, center, flex-start);
+    }
+
+    &__arrows {
+        grid-area: arrows;
+        padding: fn.pxTorem(16px) fn.pxTorem(32px) 0;
+        @include mx.createFlex(row, flex-end, flex-start) {
+            gap: fn.pxTorem(16px) ;
+        };
+    }
+}
