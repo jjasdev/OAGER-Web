@@ -1,0 +1,108 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Secciones */
+.secciones {
+    padding: fn.pxTorem(50px) fn.pxTorem(100px); 
+    @include mx.createFlex(column, flex-start, center) {
+        gap: fn.pxTorem(50px);
+    };
+
+    h2 {
+        font-size: var.getTypography('xxl');
+        color: var(--color-primary);
+    }
+
+    .cards {        
+        @include mx.createGrid(20px,
+                                auto,
+                                repeat(auto-fit,minmax(fn.pxTorem(250px),1fr))) {
+            align-self: flex-start;
+            width: 100%;
+            row-gap: fn.pxTorem(36px);
+            column-gap: fn.pxTorem(20px);
+        };
+        
+        &__item {
+            position: relative;
+            padding: fn.pxTorem(24px) fn.pxTorem(24px) 0;
+            min-height: fn.pxTorem(170px);
+            height: fit-content;
+            border: 3px solid var(--color-border);
+            border-radius: 5px;
+            box-shadow: 0px 0px 30px 0px rgb(0 0 0 / 7%);
+            @include mx.createGrid(20px,
+                                    repeat(4, auto),
+                                    1fr auto,
+                                    'titulo-card titulo-card'
+                                    'texto-card icono-card'
+                                    'lista-card lista-card'
+                                    'boton-card boton-card');
+
+            h3 {
+                grid-area: titulo-card;
+                font-size: var.getTypography('l');
+                text-align: center;
+            }
+        }
+
+        &__texto {
+            align-self: center;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        &__picture {
+            position: relative;
+            align-self: center;
+            @include mx.createPseudoelement(before) {
+                top: fn.pxTorem(-10px);
+                right: fn.pxTorem(-5px);
+                height: fn.pxTorem(40px);
+                width: fn.pxTorem(40px);
+                z-index: -1;
+                border-radius: 50%;
+                background-color: var(--color-border);
+            }
+        }
+
+        &__list {
+            grid-area: lista-card;
+            height: 0;
+            opacity: 0;
+            z-index: -1;
+            text-align: center;
+            @include mx.createFlex(column, center, center);
+            @include mx.addTransition(height);
+
+            &--visible {
+                height: max-content;
+                opacity: 1;
+                z-index: 0;
+            }
+
+            &-item {
+                padding: fn.pxTorem(16px) 0;
+                width: 100%;
+                border-top: 1px solid var(--color-border);                
+            }
+
+            &-item:first-child {
+                margin-top: fn.pxTorem(16px);
+                border-top: 3px solid var(--color-border);
+            }
+
+            &-item:last-child {
+                padding-bottom: fn.pxTorem(32px);
+            }
+           
+        }
+
+        &__link {
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+}

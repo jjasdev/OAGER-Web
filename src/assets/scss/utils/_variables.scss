@@ -9,6 +9,7 @@ $palette: (
     'color-background-primary': #1e2a3b,
     'color-background-secondary': #616373,
     'color-background-terciary': #fff,
+    'color-background-cards': #f6f6f6,
     'color-title': #1e2a3b,
     'color-text': #616373,
     'color-border': #e6e6ea,
@@ -40,7 +41,7 @@ $typography: (
 $breakpoints: (
     'xxlarge': 1440px,
     'xlarge': 1200px,
-    'large': 992px,
+    'large': 1024px,
     'medium': 768px,
     'small': 596px,
     'xsmall': 0
@@ -83,6 +84,7 @@ $images: (
     --color-background-primary: #{getColor('color-background-primary')};
     --color-background-secondary: #{getColor('color-background-secondary')};
     --color-background-terciary: #{getColor('color-background-terciary')};
+    --color-background-cards: #{getColor('color-background-cards')};
     --color-title: #{getColor('color-title')};
     --color-text: #{getColor('color-text')};
     --color-border: #{getColor('color-border')};

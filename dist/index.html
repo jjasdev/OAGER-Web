@@ -119,13 +119,13 @@
             </div>
             <div class="slider-banner">
                 <div class="slider-banner__container">
-                    <button class="slider-banner__button slider-banner__button--prev"><i class="slider-banner__icon fas fa-angle-left"></i></button>
+                    <button aria-label="Ir al banner anterior" title="Ir al banner anterior" class="slider-banner__button slider-banner__button--prev"><i class="slider-banner__icon fas fa-angle-left"></i></button>
                     <section class="banner" data-indice="0">                    
                         <div class="banner__texto">
                             <h1><abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">O.A.G.E.R.</abbr></h1>
                             <h2>Canales de atención</h2>
                             <p>Canales disponibles de atención al contribuyente, para realizar gestiones en <abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">OAGER</abbr> de manera telemática y/o telefónica.</p>
-                            <button class="banner__button">Contactar</button>
+                            <button aria-label="Contactar con el OAGER" title="Contactar con el OAGER" class="banner__button">Contactar</button>
                         </div>
                         <div class="banner__picture">
                             <img class="banner__imagen" src="assets/images/banner-contacto.webp" alt="" title="" loading="lazy" width="698" height="500">
@@ -136,20 +136,20 @@
                             <h1><abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">O.A.G.E.R.</abbr></h1>
                             <h2>Plusvalías</h2>
                             <p>Impuesto sobre el incremento del valor del terreno de naturaleza urbana.</p>
-                            <button class="banner__button">Sede Electrónica</button>
+                            <button aria-label="Ir a la Sede Electrónica" title="Ir a la Sede Electrónica" class="banner__button">Sede Electrónica</button>
                         </div>
                         <div class="banner__picture">
                             <img class="banner__imagen" src="assets/images/banner-tramites.webp" alt="" title="" loading="lazy" width="706" height="500">
                         </div>
                     </section>
-                    <button class="slider-banner__button slider-banner__button--next"><i class="slider-banner__icon fas fa-angle-right"></i></button>
+                    <button aria-label="Ir al siguiente banner" title="Ir al siguiente banner" class="slider-banner__button slider-banner__button--next"><i class="slider-banner__icon fas fa-angle-right"></i></button>
                 </div>
                 <div class="slider-banner__indicator"></div>
             </div>
         </div>
     </header>
     <main>
-        <div class="bienvenida">
+        <section class="bienvenida">
             <ul class="accesos-directos">
                 <li class="accesos-directos__item">
                     <a class="accesos-directos__link" aria-label="Ir a Certificado Firma digital" title="Ir a Certificado Firma digital" href="#">
@@ -192,7 +192,7 @@
                     </a>                        
                 </li>
             </ul>
-            <section class="bienvenida__container">
+            <div class="bienvenida__container">
                 <div class="bienvenida__discurso">
                     <h2>Bienvenida</h2>
                     <p class="bienvenida__discurso-texto">"Como alcalde de Salamanca, quiero darte la bienvenida a la página web del Organismo Autónomo de Gestión Económica y Recaudación (OAGER), un portal abierto para acercar la Administración municipal al ciudadano, darnos a conocer y facilitarte los trámites diarios".</p>
@@ -202,14 +202,15 @@
                 <div class="bienvenida__picture">
                     <img class="bienvenida__picture-imagen" src="assets/images/alcalde-salamanca.webp" alt="" title="" loading="lazy" width="426" height="616">
                 </div>
-            </section>
-        </div>
-        <div class="avisos">
+            </div>
+        </section>
+        <section class="avisos">
+            <h2>Avisos</h2>
             <div class="avisos__tabs">
                 <div class="avisos__tabs-item avisos__tabs-item--active" data-type="noticia">Noticias</div>
                 <div class="avisos__tabs-item avisos__tabs-item--no-active" data-type="aviso">Avisos</div>
             </div>
-            <section class="avisos__container">
+            <div class="avisos__container">
                 <div class="avisos__arrows">
                     <button class="avisos__button avisos__button--prev"><i class="avisos__icon fas fa-angle-left"></i></button>
                     <button class="avisos__button avisos__button--next"><i class="avisos__icon fas fa-angle-right"></i></button>
@@ -220,7 +221,7 @@
                     <div class="avisos__notification-box">
                         <h3>Titular alert</h3>
                         <p class="avisos__notification-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nemo qui cupiditate dicta natus voluptatem veniam in deleniti harum quisquam sint at distinctio doloribus fugit autem, id rerum aut laborum facere omnis totam rem veritatis doloremque iure. Optio, sint ad! Animi, nihil illo quibusdam expedita vel fugit dolor voluptatum quidem obcaecati similique veniam! Laudantium veniam tenetur quibusdam saepe minima labore quasi quae dolores tempore sunt, doloribus magnam animi, illo laboriosam?</p>
-                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer más [+]</a>  
+                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer [+]</a>  
                     </div>
                 </article>
                 <article class="avisos__notification" data-indice="1" data-type="noticia">
@@ -229,7 +230,7 @@
                     <div class="avisos__notification-box">
                         <h3>Titular alert</h3>
                         <p class="avisos__notification-texto">Voluptas deserunt sint nisi iusto facere, quas dignissimos eum, earum iure est assumenda, sequi nulla totam maiores doloribus quia quibusdam? Expedita, obcaecati.</p>
-                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer más [+]</a>  
+                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer [+]</a>  
                     </div>
                 </article>
                 <article class="avisos__notification" data-indice="0" data-type="aviso">
@@ -238,7 +239,7 @@
                     <div class="avisos__notification-box">
                         <h3>Titular alert</h3>
                         <p class="avisos__notification-texto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas deserunt sint nisi iusto facere, quas dignissimos eum, earum iure est assumenda, sequi nulla totam maiores doloribus quia quibusdam? Expedita, obcaecati.</p>
-                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer más [+]</a>  
+                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer [+]</a>  
                     </div>
                 </article>
                 <article class="avisos__notification" data-indice="1" data-type="aviso">
@@ -247,7 +248,7 @@
                     <div class="avisos__notification-box">
                         <h3>Titular alert</h3>
                         <p class="avisos__notification-texto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas deserunt sint nisi iusto facere, quas dignissimos eum, earum iure est assumenda, sequi nulla totam maiores doloribus quia quibusdam? Expedita, obcaecati.</p>
-                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer más [+]</a>  
+                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer [+]</a>  
                     </div>
                 </article>
                 <article class="avisos__notification" data-indice="2" data-type="aviso">
@@ -256,12 +257,150 @@
                     <div class="avisos__notification-box">
                         <h3>Titular alert</h3>
                         <p class="avisos__notification-texto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas deserunt sint nisi iusto facere, quas dignissimos eum, earum iure est assumenda, sequi nulla totam maiores doloribus quia quibusdam? Expedita, obcaecati.</p>
-                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer más [+]</a>  
+                        <a class="avisos__notification-leer-mas" aria-label="Leer más" title="Leer más" href="#">Leer [+]</a>  
                     </div>
                 </article>
                 <div class="avisos__indicator"></div>
-            </section>
-        </div>
+            </div>
+        </section>
+        <section class="secciones">
+            <h2>Secciones</h2>
+            <div class="cards">
+                <div class="cards__item">
+                    <h3>Organización</h3>
+                    <p class="cards__texto">Organización estructural</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-sitemap"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Organización Política" title="Ir a Organización Política" href="#">Organización Política</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Organización Administrativa" title="Ir a Organización Administrativa" href="#">Organización Administrativa</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Estatutos" title="Ir a Estatutos" href="#">Estatutos</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Competencias" title="Ir a Competencias" href="#">Competencias</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Convenios Institucionales" title="Ir a Convenios Institucionales" href="#">Convenios Institucionales</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Memoria de Actividades" title="Ir a Memoria de Actividades" href="#">Memoria de Actividades</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Oficinas" title="Ir a Oficinas" href="#">Oficinas</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Normativa</h3>
+                    <p class="cards__texto">Normativa legal vigente</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-gavel"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Legislación" title="Ir a Legislación" href="#">Legislación</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Ordenanzas Fiscales" title="Ir a Ordenanzas Fiscales" href="#">Ordenanzas Fiscales</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Jurisprudencia" title="Ir a Jurisprudencia" href="#">Jurisprudencia</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Tramitación Electrónica" title="Ir a Tramitación Electrónica" href="#">Tramitación Electrónica</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Criterios de la Asesoría Jurídica" title="Ir a Criterios de la Asesoría Jurídica" href="#">Criterios de la Asesoría Jurídica</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Consultas tributarias" title="Ir a Consultas tributarias" href="#">Consultas tributarias</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Calendario</h3>
+                    <p class="cards__texto">Calendario del contribuyente</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-calendar"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Calendario por tributos" title="Ir a Calendario por tributos" href="#">Por tributos</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Calendario por meses" title="Ir a Calendario por meses" href="#">Por meses</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Información</h3>
+                    <p class="cards__texto">Información catastral</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-house-user"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Competencias" title="Ir a Competencias" href="#">Competencias</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Estadísticas" title="Ir a Estadísticas" href="#">Estadísticas</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Buzón</h3>
+                    <p class="cards__texto">Buzón del contribuyente</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-inbox"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Buzón Con certificado digital" title="Ir a Buzón Con certificado digital" href="#">Con certificado digital</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Buzón Sin certificado digital" title="Ir a Buzón Sin certificado digital" href="#">Buzón Sin certificado digital</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Documentación</h3>
+                    <p class="cards__texto">Documentación administrativa</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-copy"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Formularios" title="Ir a Formularios" href="#">Formularios</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Modelos" title="Ir a Modelos" href="#">Modelos</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Cotejo de documentos CSV" title="Ir a Cotejo de documentos CSV" href="#">Cotejo de documentos <abbr lang="es" title="Código Seguro de Verificación">CSV</abbr></li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Certificado digital" title="Ir a Certificado digital" href="#">Certificado digital</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Tramitación</h3>
+                    <p class="cards__texto">Tramitación electrónica</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-user-edit"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Seguimiento de expedientes" title="Ir a Seguimiento de expedientes" href="#">Seguimiento de expedientes</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Ventanilla única" title="Ir a Ventanilla única" href="#">Ventanilla única</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Calendario del contribuyente" title="Ir a Calendario del contribuyente" href="#">Calendario del contribuyente</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Simulación de tributos" title="Ir a Simulación de tributos" href="#">Simulación de tributos</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Autoliquidaciones" title="Ir a Autoliquidaciones" href="#">Autoliquidaciones</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Pago a la carta" title="Ir a Pago a la carta" href="#">Pago a la carta</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Cotejo de documentos CSV" title="Ir a Cotejo de documentos CSV" href="#">Cotejo de documentos <abbr lang="es" title="Código Seguro de Verificación">CSV</abbr></li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Sede electrónica" title="Ir a Sede electrónica" href="#">Sede electrónica</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Calidad</h3>
+                    <p class="cards__texto">Normativa de calidad</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-stamp"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a ISO 9001" title="Ir a ISO 9001" href="#">ISO 9001</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Política de seguridad" title="Ir a Política de seguridad" href="#">Política de gestión de la seguridad de la información del <abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">OAGER</abbr></li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Cumplimiento de objetivos - indicadores" title="Ir a Cumplimiento de objetivos - indicadores" href="#">Cumplimiento de objetivos - indicadores</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Guía de trámites" title="Ir a Guía de trámites" href="#">Guía de trámites</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Encuesta safisfacción 2018" title="Ir a Encuesta safisfacción 2018" href="#">Encuesta safisfacción 2018</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Encuesta safisfacción 2019" title="Ir a Encuesta safisfacción 2019" href="#">Encuesta safisfacción 2019</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Información</h3>
+                    <p class="cards__texto">Información financiera</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-coins"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Presupuesto" title="Ir a Presupuesto" href="#">Presupuesto</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Inventario" title="Ir a Inventario" href="#">Inventario</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Pago de proveedores" title="Ir a Pago de proveedores" href="#">Período medio de pago de proveedores</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Indicadores de eficiencia" title="Ir a Indicadores de eficiencia" href="#">Indicadores de eficiencia</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Adjudicaciones superiores a 3000.00 euros" title="Ir a Adjudicaciones superiores a 3000.00 euros" href="#">Adjudicaciones superiores a 3000.00 euros</li></a>
+                    </ul>
+                </div>
+                <div class="cards__item">
+                    <h3>Estadísticas</h3>
+                    <p class="cards__texto">Estadísticas web</p>
+                    <button aria-label="Ver más" title="Ver más" class="cards__button">Ver +</button>
+                    <div class="cards__picture"><i class="cards__icon fas fa-chart-area"></i></div>
+                    <ul class="cards__list">
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Estadísticas generales" title="Ir a Estadísticas generales" href="#">Estadísticas generales</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Visitas por día" title="Ir a Visitas por día" href="#">Visitas por día</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Visitas por ciudad" title="Ir a Visitas por ciudad" href="#">Visitas por ciudad</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Visitas por país" title="Ir a Visitas por país" href="#">Visitas por país</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Fuentes de tráfico" title="Ir a Fuentes de tráfico" href="#">Fuentes de tráfico</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Palabras clave" title="Ir a Palabras clave" href="#">Palabras clave</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Navegadores" title="Ir a Navegadores" href="#">Navegadores</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Contenidos por título" title="Ir a Contenidos por título" href="#">Contenidos por título</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Comparativa" title="Ir a Comparativa" href="#">Comparativa</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Trámites y solicitudes" title="Ir a Trámites y solicitudes" href="#">Trámites y solicitudes</li></a>
+                        <li class="cards__list-item"><a class="cards__link" aria-label="Ir a Atención al contribuyente" title="Ir a Atención al contribuyente" href="#">Atención al contribuyente</li></a>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
     <footer></footer>      
 </body>

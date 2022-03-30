@@ -9,12 +9,15 @@
     padding: fn.pxTorem(16px) fn.pxTorem(32px);
     text-transform: uppercase;
     border-radius: 5px;
-    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    background: linear-gradient(to left,var(--color-primary) 50%,transparent 50%) no-repeat right / 200%;
     color: var(--color-light);
     cursor: pointer;
+    @include mx.addTransition(background-position);
 
     &:hover {
-        opacity: .8;
+        background-position: left;
+        color: var(--color-primary);
     }
 }
 
@@ -25,5 +28,25 @@
 
     &--next {
         grid-area: next;
+    }
+}
+
+.cards__button {
+    padding: fn.pxTorem(8px) fn.pxTorem(16px);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    background: linear-gradient(to left,var(--color-light) 50%,var(--color-text) 50%) no-repeat right / 200%;
+    color: var(--color-text);
+    cursor: pointer;
+    @include mx.addTransition(background-position);
+
+    &:hover {
+        background-position: left;
+        color: var(--color-light);
     }
 }

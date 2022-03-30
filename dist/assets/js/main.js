@@ -384,9 +384,9 @@ avisos.addEventListener("click", (event) =>{
         event.preventDefault();
         event.target.previousElementSibling.classList.toggle("avisos__notification-texto--acortar");
         if(event.target.previousElementSibling.classList.contains('avisos__notification-texto--acortar')){
-            event.target.innerHTML = 'Leer más [+]'
+            event.target.innerHTML = 'Leer [+]'
         } else {
-            event.target.innerHTML = 'Leer menos [-]'
+            event.target.innerHTML = 'Leer [-]'
         }
     }
 });
@@ -406,7 +406,18 @@ texto.forEach(elemento=> {
     }
 });
 
-
+//Secciones
+const cards = document.querySelector('.cards');
+cards.addEventListener("click", (event) =>{
+    if(event.target.classList.contains('cards__button')){
+        event.target.nextElementSibling.nextElementSibling.classList.toggle("cards__list--visible");
+        if(event.target.nextElementSibling.nextElementSibling.classList.contains('cards__list--visible')){
+            event.target.innerHTML = 'Ver -'
+        } else {
+            event.target.innerHTML = 'Ver +'
+        }
+    }
+});
 
 
 

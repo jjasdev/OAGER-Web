@@ -47,3 +47,8 @@
         color: var(--color-primary);
     }
 }
+
+.cards__icon {
+    grid-area: icono-card;
+    font-size: var.getTypography('xl');
+}

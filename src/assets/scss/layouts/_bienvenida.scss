@@ -73,6 +73,7 @@
     }
 
     &__container { 
+        padding-top: fn.pxTorem(16px);
         color: rgba(var.getColor('color-light'), 0.8);
         @include mx.createGrid(20px,auto, 60% 40%) {
             width: 100%;
