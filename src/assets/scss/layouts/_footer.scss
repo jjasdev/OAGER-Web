@@ -1,0 +1,100 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Footer */
+.footer {
+    @include mx.createFlex(column, flex-start, center);
+
+    &__svg {
+        margin-bottom: fn.pxTorem(-8px);
+        &-path {
+            fill:var(--color-background-primary);
+        }
+
+        &-polygon {
+            fill:var(--color-background-terciary);
+        }
+    }
+
+    &__main {
+        padding: fn.pxTorem(50px) fn.pxTorem(100px); 
+        background-color: var(--color-background-primary);
+        @include mx.createGrid(16px,
+                                repeat(2,auto),
+                                auto 1fr,
+                                'cert-logos cert-texto'
+                                'office-img office-texto') {
+            width: 100%;
+        }
+    }
+
+    &__logos {
+        @include mx.createFlex(row, flex-end, center) {
+            gap: fn.pxTorem(16px);
+        };
+    }
+
+    &__image {
+        max-width: fn.pxTorem(80px);        
+        aspect-ratio: 1 / 1;
+        filter: grayscale(1);
+
+        &--circle {
+            border-radius: 50%;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+            filter: grayscale(0);
+            @include mx.addTransition(transform);
+        }
+    }
+
+    &__texto{
+        align-self: center;
+        p {
+            color: rgba(var.getColor('color-light'), 0.8);
+            font-weight: 300;
+        }
+            
+    }
+
+    &__link {
+        font-weight: 700;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+
+    &__list {
+        color: rgba(var.getColor('color-light'), 0.8);
+        font-weight: 300;
+    }
+
+    &__links {
+        padding: fn.pxTorem(32px) fn.pxTorem(100px); 
+        background-color: var(--color-background-footer);
+        @include mx.createFlex(row, space-between, center);
+    }
+
+    &__nav {
+        @include mx.createFlex(row, flex-end, center, auto);
+        &-item {
+            padding: 0 fn.pxTorem(16px);
+            border-right: 1px solid rgba(var.getColor('color-border'), 0.5); 
+            color: rgba(var.getColor('color-light'), 0.8);
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    &__copy {
+        &-oager {
+            color: var(--color-primary);
+        }
+    }
+}

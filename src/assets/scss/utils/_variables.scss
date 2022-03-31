@@ -11,6 +11,7 @@ $palette: (
     'color-background-terciary': #fff,
     'color-background-cards': #f6f6f6,
     'color-background-map': #e6e6e6,
+    'color-background-footer': #222933,
     'color-title': #1e2a3b,
     'color-text': #616373,
     'color-border': #e6e6ea,
@@ -88,6 +89,7 @@ $images: (
     --color-background-terciary: #{getColor('color-background-terciary')};
     --color-background-cards: #{getColor('color-background-cards')};
     --color-background-map: #{getColor('color-background-map')};
+    --color-background-footer: #{getColor('color-background-footer')};
     --color-title: #{getColor('color-title')};
     --color-text: #{getColor('color-text')};
     --color-border: #{getColor('color-border')};

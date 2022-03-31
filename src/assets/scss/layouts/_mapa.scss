@@ -2,7 +2,7 @@
 @use '../utils/variables' as var;
 @use '../utils/mixins' as mx;
 
-/* Secciones */
+/* Mapa */
 .mapa {
     padding: fn.pxTorem(50px) fn.pxTorem(100px); 
     @include mx.createFlex(column, flex-start, center) {
@@ -73,11 +73,11 @@
             border-bottom: 3px solid var(--color-border); 
             cursor: pointer;  
             
-            &:hover .mapa__oficinas-link{
+            &:hover .mapa__oficinas-text{
                 color: var(--color-light);                
             }
 
-            &:hover .mapa__oficinas-link::after {
+            &:hover .mapa__oficinas-text::after {
                 height: 100%;
             }
 
@@ -109,7 +109,7 @@
             font-weight: 300;
         }
 
-        &-link {            
+        &-text {            
             text-transform: uppercase;   
             @include mx.createPseudoelement(after) {
                 bottom: 0;

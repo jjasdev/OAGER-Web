@@ -25,7 +25,7 @@
   * Array con los botones para avanzar en la muestra de banners en el slider
   * @type {Array}
   */
-   let botonesSlider = [ "prev", "next" ];
+   let botonesSlider = [ "anterior", "siguiente" ];
    /**
   * Array con los botones para avanzar en la muestra de banners en el slider
   * @type {Array}
@@ -75,6 +75,7 @@ function rellenarCeros(numero, longitudCifra) {
     const longitudCifra = 2;
     const nodoHora = document.querySelector(".date__hour");
     const nodoDia = document.querySelector(".date__day");
+    const nodoYear = document.querySelector(".footer__copy-year");
     let horas = rellenarCeros(today.getHours(), longitudCifra);
     let minutos = rellenarCeros(today.getMinutes(), longitudCifra);
     let diaSemana = weekDaysNames[today.getDay()];
@@ -84,6 +85,7 @@ function rellenarCeros(numero, longitudCifra) {
     
     nodoHora.innerHTML = hour;  
     nodoDia.innerHTML = day; 
+    nodoYear.innerHTML = today.getFullYear();
 }
 /**
   * Pinta el texto del horario de atención de un color u otro dependiendo si el servicio está o no disponible
@@ -203,7 +205,7 @@ function rellenarCeros(numero, longitudCifra) {
     const indicators = document.querySelectorAll(`.${nodoIndicador.className}-item`);
     let indiceNuevoElemento = 0;
     let claseNodo = '';
-    if (tipoBoton.includes('prev')) {
+    if (tipoBoton.includes('anterior')) {
         //Comprobamos en qué elemento nos encontramos.       
         nodosElemento.forEach((elemento, index)=> {
             if(elemento.getAttribute('data-active') === 'true') {
@@ -219,7 +221,7 @@ function rellenarCeros(numero, longitudCifra) {
                 }
             }
         });                       
-    } else if (tipoBoton.includes('next')) {
+    } else if (tipoBoton.includes('siguiente')) {
         //Comprobamos en qué elemento nos encontramos.       
         nodosElemento.forEach((elemento, index)=> {
             if(elemento.getAttribute('data-active') === 'true') {
@@ -337,8 +339,8 @@ iconMenuOpen.addEventListener('click', desplegarMenu);
 iconMenuClose.addEventListener('click', desplegarMenu);
 
 //Slider
-const botonPrevSlider = document.querySelector(".slider-banner__button--prev");
-const botonNextSlider = document.querySelector(".slider-banner__button--next");
+const botonPrevSlider = document.querySelector(".slider-banner__button--anterior");
+const botonNextSlider = document.querySelector(".slider-banner__button--siguiente");
 const contentBanner = document.querySelectorAll(".banner");
 const indicatorContainerSlider = document.querySelector(".slider-banner__indicator");
 //Solo mostramos el carrusel si tiene más de un banner
@@ -364,8 +366,8 @@ if (contentBanner.length > 1) {
 
 //Avisos
 const avisos = document.querySelector(".avisos");
-const botonPrevAvisos = document.querySelector(".avisos__button--prev");
-const botonNextAvisos = document.querySelector(".avisos__button--next");
+const botonPrevAvisos = document.querySelector(".avisos__button--anterior");
+const botonNextAvisos = document.querySelector(".avisos__button--siguiente");
 const contentNoticias = document.querySelectorAll('.avisos__notification[data-type="noticia"]');
 const contentAvisos = document.querySelectorAll('.avisos__notification[data-type="aviso"]');
 const indicatorContainerAvisos = document.querySelector(".avisos__indicator"); 
@@ -464,7 +466,7 @@ mapa.addEventListener("mouseover", (event) =>{
     if( (event.target.classList.contains('mapa__oficinas-title')) || (event.target.classList.contains('mapa__oficinas-detalles'))){
         mostrarOficina(event.target.parentNode);
     }
-    if( (event.target.classList.contains('mapa__oficinas-link')) || (event.target.classList.contains('mapa__oficinas-nombre'))){
+    if( (event.target.classList.contains('mapa__oficinas-text')) || (event.target.classList.contains('mapa__oficinas-nombre'))){
         mostrarOficina(event.target.parentNode.parentNode);
     }
     if( (event.target.classList.contains('mapa__oficinas-servicio')) || (event.target.classList.contains('mapa__oficinas-barrio'))){
@@ -475,7 +477,7 @@ mapa.addEventListener("mouseout", (event) =>{
     if( (event.target.classList.contains('mapa__oficinas-title')) || (event.target.classList.contains('mapa__oficinas-detalles'))){
         ocultarOficina(event.target.parentNode);
     }
-    if( (event.target.classList.contains('mapa__oficinas-link')) || (event.target.classList.contains('mapa__oficinas-nombre'))){
+    if( (event.target.classList.contains('mapa__oficinas-text')) || (event.target.classList.contains('mapa__oficinas-nombre'))){
         ocultarOficina(event.target.parentNode.parentNode);
     }
     if( (event.target.classList.contains('mapa__oficinas-servicio')) || (event.target.classList.contains('mapa__oficinas-barrio'))){
