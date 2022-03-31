@@ -284,6 +284,42 @@ function rellenarCeros(numero, longitudCifra) {
         }        
     });
  }
+ /**
+  * Muestra la oficina en el mapa
+  * @param {Node} nodoOficina Nodo correspondiente a la oficina
+  * @returns {void}
+  */
+  function mostrarOficina(nodoOficina){ 
+        let oficina = nodoOficina.getAttribute('data-item');
+        oficinasMapa.forEach(item=> {
+            if (item.getAttribute('data-item') === oficina) {
+                item.classList.add('mapa__office--visible');
+            }
+        });
+        markersMapa.forEach(item=> {
+            if (item.getAttribute('data-item') === oficina) {
+                item.classList.add('mapa__marker--visible');
+            }
+        });
+ }
+ /**
+  * Oculta la oficina en el mapa
+  * @param {Node} nodoOficina Nodo correspondiente a la oficina
+  * @returns {void}
+  */
+  function ocultarOficina(nodoOficina){ 
+        let oficina = nodoOficina.getAttribute('data-item');
+        oficinasMapa.forEach(item=> {
+            if (item.getAttribute('data-item') === oficina) {
+                item.classList.remove('mapa__office--visible');
+            }
+        });
+        markersMapa.forEach(item=> {
+            if (item.getAttribute('data-item') === oficina) {
+                item.classList.remove('mapa__marker--visible');
+            }
+        });
+ }
 
 //--CÓDIGO
 //Establecer fechas y pintar horarios
@@ -418,6 +454,36 @@ cards.addEventListener("click", (event) =>{
         }
     }
 });
+
+//Oficinas
+const mapa = document.querySelector('.mapa__oficinas');
+const oficinasMapa = document.querySelectorAll('.mapa__office');
+const markersMapa = document.querySelectorAll('.mapa__marker');
+
+mapa.addEventListener("mouseover", (event) =>{
+    if( (event.target.classList.contains('mapa__oficinas-title')) || (event.target.classList.contains('mapa__oficinas-detalles'))){
+        mostrarOficina(event.target.parentNode);
+    }
+    if( (event.target.classList.contains('mapa__oficinas-link')) || (event.target.classList.contains('mapa__oficinas-nombre'))){
+        mostrarOficina(event.target.parentNode.parentNode);
+    }
+    if( (event.target.classList.contains('mapa__oficinas-servicio')) || (event.target.classList.contains('mapa__oficinas-barrio'))){
+        mostrarOficina(event.target.parentNode.parentNode.parentNode);
+    }
+});
+mapa.addEventListener("mouseout", (event) =>{
+    if( (event.target.classList.contains('mapa__oficinas-title')) || (event.target.classList.contains('mapa__oficinas-detalles'))){
+        ocultarOficina(event.target.parentNode);
+    }
+    if( (event.target.classList.contains('mapa__oficinas-link')) || (event.target.classList.contains('mapa__oficinas-nombre'))){
+        ocultarOficina(event.target.parentNode.parentNode);
+    }
+    if( (event.target.classList.contains('mapa__oficinas-servicio')) || (event.target.classList.contains('mapa__oficinas-barrio'))){
+        ocultarOficina(event.target.parentNode.parentNode.parentNode);
+    }
+});
+
+
 
 
 

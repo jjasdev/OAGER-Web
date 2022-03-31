@@ -7,6 +7,7 @@
 .date__icon {
     color: var(--color-primary);
 }
+
 .contact__icon {
     color: var(--color-primary);
     
@@ -23,6 +24,7 @@
         color: rgba(var.getColor('color-light'), 0.8);
     }
 }
+
 .slider-banner__icon {
     font-size: var.getTypography('xxl');
     color: rgba(var.getColor('color-light'), 0.8);
@@ -32,6 +34,7 @@
         color: var(--color-light);
     }
 }
+
 .accesos-directos__icon {
     font-size: var.getTypography('xl');
     color: var(--color-primary); 

@@ -1,0 +1,125 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Secciones */
+.mapa {
+    padding: fn.pxTorem(50px) fn.pxTorem(100px); 
+    @include mx.createFlex(column, flex-start, center) {
+        gap: fn.pxTorem(50px);
+    };
+
+    h2 {
+        font-size: var.getTypography('xxl');
+        color: var(--color-primary);
+    }
+
+    &__container {
+        position: relative;
+        @include mx.createFlex(row, center, center) {
+            gap: fn.pxTorem(50px);
+            height: max-content;
+        };
+    }
+
+    &__mapa {
+        width: 50%;
+    }
+
+    &__map {
+        fill: var(--color-background-map);
+        stroke: var(--color-border-map);
+        stroke-miterlimit: 10;
+    }
+
+    &__office {
+        fill: var(--color-primary);
+        opacity: 0;
+
+        &--visible {            
+            opacity: 1;
+            filter:drop-shadow(1px 6px 6px var(--color-dark));
+            @include mx.addTransition(opacity, .5s);
+        }
+    }
+
+    &__river {
+        fill: none;
+        stroke:var(--color-border-map);
+        stroke-width: 14;
+        stroke-miterlimit: 10;
+    }
+
+    &__marker {
+        fill-rule:evenodd;
+        clip-rule:evenodd;
+        fill:var(--color-border-map);
+        opacity: 0;
+
+        &--visible {            
+            opacity: 1;
+            @include mx.addTransition(opacity, .5s);
+        }
+    }
+
+    &__oficinas {        
+        @include mx.createFlex(column, center, center) {
+            width: 50%;
+        };
+        
+        &-item {
+            width: 100%;            
+            text-align: center;
+            border-bottom: 3px solid var(--color-border); 
+            cursor: pointer;  
+            
+            &:hover .mapa__oficinas-link{
+                color: var(--color-light);                
+            }
+
+            &:hover .mapa__oficinas-link::after {
+                height: 100%;
+            }
+
+            &:hover .mapa__oficinas-detalles {
+                display: flex;
+            }
+        }
+
+        &-title {
+            position: relative;
+            padding: fn.pxTorem(16px);            
+            font-weight: 700;
+        }
+
+        &-barrio {
+            font-weight: 300;
+            text-transform: none;
+        }
+
+        &-detalles {
+            padding: fn.pxTorem(16px);
+            @include mx.createFlex(column, flex-start, center) {
+                gap: fn.pxTorem(16px);
+            };
+            display: none;
+        }
+
+        &-servicios {
+            font-weight: 300;
+        }
+
+        &-link {            
+            text-transform: uppercase;   
+            @include mx.createPseudoelement(after) {
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background-color: var(--color-primary);
+                z-index: -10;
+                @include mx.addTransition(height, .5s);
+            };
+        }
+    }
+}
