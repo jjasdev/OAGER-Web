@@ -14,6 +14,9 @@
     color: var(--color-light);
     cursor: pointer;
     @include mx.addTransition(background-position);
+    @include mx.addBreakpoint('medium') {
+        width: 100%;
+    }
 
     &:hover {
         background-position: left;

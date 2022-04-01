@@ -72,6 +72,11 @@
         @content;
     }
 }
+@mixin addBreakpointSpecial($media-inf, $media-sup) {
+    @media screen and (min-width: var.getMedia($media-inf)) and (max-width: var.getMedia($media-sup)) {
+        @content;
+    }
+}
 @mixin addTransition($property:all, $time:.3s) {
     transition: $property $time ease-in-out;
 }

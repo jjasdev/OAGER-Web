@@ -4,6 +4,7 @@
 
 /* Banner */
 .banner {    
+    position: relative;
     grid-area: content;
     opacity: 1;
     z-index: 0;
@@ -12,6 +13,15 @@
         width: 100%;
         place-items: center start;
     };
+    @include mx.addBreakpoint('large') {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: fn.pxTorem(16px);
+    }
+    @include mx.addBreakpoint('medium') {
+        text-align: center;
+        place-items: center center;        
+    }
 
     h1 {
         font-size: var.getTypography('xl');
@@ -22,6 +32,10 @@
         font-size: var.getTypography('xxxl');
         color: var(--color-light);
         line-height: fn.pxToem(16px);
+        max-width: fn.pxTorem(600px);
+        @include mx.addBreakpoint('small') {
+            font-size: clamp(var.getTypography('default'), 10vw, var.getTypography('xxxl'));
+        }
     }
 
     p {
@@ -42,6 +56,17 @@
     } 
     
     &__picture {
-        max-height: fn.pxTorem(600px);;
+        max-height: fn.pxTorem(600px);
+        @include mx.addBreakpointSpecial('medium', 'large') {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            width: 50%;
+            opacity: .5;    
+        }
+        @include mx.addBreakpoint('medium') {
+            display: none;
+        }
     }
 }

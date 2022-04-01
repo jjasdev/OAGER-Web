@@ -8,6 +8,9 @@
     @include mx.createGrid(20px,auto,auto 1fr) {
         width: 100%;
     };
+    @include mx.addBreakpoint('medium') {
+        width: max-content;
+    }
 
     &--open {
         padding-top: fn.pxTorem(50px);
@@ -36,6 +39,9 @@
             height: fn.pxTorem(80px);
             place-content: center end;
             @include mx.addTransition(height); 
+            @include mx.addBreakpoint('large') {
+                height: fn.pxTorem(60px);
+            }
         }        
     }
     
@@ -46,6 +52,9 @@
     @include mx.createFlex(column, center, center) {
         gap: fn.pxTorem(32px);
     };
+    @include mx.addBreakpoint('large') {
+        gap: fn.pxTorem(0px);
+    }
 
     &__container {
         @include mx.createGrid(32px,
@@ -54,6 +63,12 @@
                                 'prev content next') {
             width: 100%;
         };
+        @include mx.addBreakpoint('large') {
+            gap: fn.pxTorem(50px);
+        }
+        @include mx.addBreakpoint('small') {
+            gap: fn.pxTorem(20px);
+        }
     } 
 
 }

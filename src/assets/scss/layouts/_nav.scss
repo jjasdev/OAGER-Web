@@ -13,25 +13,7 @@
     &--open {
         flex-direction: column;
         gap: fn.pxTorem(50px);
-    }
-
-    &__icon {
-        &--big {
-            transform: scale(2);
-            position: absolute;
-            top: fn.pxTorem(75px); 
-            right: fn.pxTorem(100px);
-            align-self: flex-end;
-        }
-
-        &--open {
-            display: block;
-        }
-
-        &--close {
-            display: none;
-        }
-    }
+    }    
 
     &__menu {           
         display: none;
@@ -47,6 +29,10 @@
 
         &-link {
             font-size: var.getTypography('xxl');
+            @include mx.addBreakpoint('medium') {
+                font-size: var.getTypography('xl');
+            }
+
             &--active,
             &:hover {
                 color: var(--color-light);
@@ -58,10 +44,17 @@
         @include mx.createFlex(row, flex-end, center, max-content) {
             gap: fn.pxTorem(8px);
         };
+        @include mx.addBreakpoint('medium') {
+            display: none;
+        }
 
         &--open {
+            display: flex;
+            transform: scale(1.5);
+        }
+
+        &--hide {
             display: none;
-            transform: scale(2);
         }
 
         &-buscar {

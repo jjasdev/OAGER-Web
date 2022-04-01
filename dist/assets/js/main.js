@@ -135,10 +135,14 @@ function rellenarCeros(numero, longitudCifra) {
         mainNavMenu.classList.add('main-nav__menu--open');
         menuNavIconClose.parentNode.classList.add('main-nav__icon--open');
         menuNavIconClose.parentNode.classList.remove('main-nav__icon--close');
-        menuNavIconClose.parentNode.classList.add('main-nav__icon--big');
-        menuSearch.classList.add('main-nav__search--open');
+        menuNavIconClose.parentNode.classList.add('main-nav__icon--big');        
         menuNavIconOpen.parentNode.classList.add('main-nav__icon--close');
         body.style.overflow = 'hidden';
+        if (responsive) {
+            menuSearch.classList.add('main-nav__search--open');
+        } else {
+            menuSearch.classList.add('main-nav__search--hide');
+        }
 
         showMenu = true;
     } else {
@@ -148,9 +152,13 @@ function rellenarCeros(numero, longitudCifra) {
         menuNavIconClose.parentNode.classList.remove('main-nav__icon--open');
         menuNavIconClose.parentNode.classList.add('main-nav__icon--close');
         menuNavIconClose.parentNode.classList.remove('main-nav__icon--big');
-        menuSearch.classList.remove('main-nav__search--open');
         menuNavIconOpen.parentNode.classList.remove('main-nav__icon--close');
         body.style.overflow = 'auto';
+        if (responsive) {
+            menuSearch.classList.remove('main-nav__search--open');
+        } else {
+            menuSearch.classList.remove('main-nav__search--hide');
+        }
 
         showMenu = false;
     }    
@@ -330,6 +338,21 @@ setInterval(()=> {
     establecerHora();
 }, 1000);
 pintarHorario();
+
+//Controlar responsive
+const mediaQuery768 = window.matchMedia('(max-width: 768px)');
+let responsive = false;
+if (window.innerWidth < 768){
+    responsive = true;
+}
+mediaQuery768.addEventListener('change', function() {
+    let cambioPantalla = this.matches;  
+    if(cambioPantalla){
+        responsive = true;
+    }else{
+        responsive = false;
+    }
+}); 
 
 //Menú de navegación
 const body = document.querySelector("body");

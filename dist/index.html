@@ -41,7 +41,7 @@
                     <i class="contact__icon fas fa-phone"></i>
                     <a class="contact__telephone-link" href="tel:+34900701000">900 701 000</a>
                 </div>
-                <div class="contact__schedule" aria-label="Ver horarios de atención" title="Horarios de atención">
+                <div role="region" class="contact__schedule" aria-label="Ver horarios de atención" title="Horarios de atención">
                     <i class="contact__icon fas fa-clock"></i>
                     <span class="contact__schedule-text">Horario de atención</span>
                     <span class="contact__schedule-state"></span>
@@ -89,7 +89,7 @@
                     </a>
                 </div>
                 <nav class="main-nav" aria-label="Menú principal"> 
-                    <a class="main-nav__icon main-nav__icon--close" aria-label="Cerrar menú" title="Cerrar menú" href="#"><i class="contact__icon contact__icon--white fas fa-times"></i></a>
+                    <a class="main-nav__icon main-nav__icon--close" aria-label="Cerrar menú" title="Cerrar menú" href="#"><i class="contact__icon fas fa-times"></i></a>
                     <ul class="main-nav__menu">                               
                         <li class="main-nav__menu-item">
                             <a class="main-nav__menu-link main-nav__menu-link--active" aria-label="Ir a Opción 1" title="Ir a Opción 1" href="#">Inicio</a>
@@ -111,7 +111,7 @@
                         </li>
                     </ul>
                     <form class="main-nav__search" method="post" action="./buscar.aspx?texto=" id="aspnet-form">
-                        <input name="ctl00$txtBuscar" type="search" id="ctl00_txtBuscar" class="main-nav__search-buscar" title="Buscar" placeholder="Buscar" />
+                        <input name="ctl00$txtBuscar" type="search" id="ctl00_txtBuscar" class="main-nav__search-buscar" placeholder="Buscar" />
                         <input type="submit" name="ctl00$ButtonEnviar" value="" id="ctl00_ButtonEnviar" class="contact__icon contact__icon--white main-nav__search-icon fa fa-search" />
                     </form>                        
                     <a class="main-nav__icon" aria-label="Desplegar menú" title="Desplegar menú" href="#"><i class="contact__icon contact__icon--white fas fa-bars"></i></a>                                  
@@ -127,9 +127,10 @@
                             <p>Canales disponibles de atención gratuita al contribuyente, para realizar gestiones en <abbr lang="es" title="Organismo Autónomo de Gestión Económica y Recaudación">OAGER</abbr> de manera telemática y/o telefónica.</p>
                             <button aria-label="Contactar con el OAGER" title="Contactar con el OAGER" class="banner__button">Contactar</button>
                         </div>
-                        <div class="banner__picture">
+                        <picture class="banner__picture">
+                            <source srcset="assets/images/app-banner-contacto.webp" media="(max-width: 1024px)" loading="lazy" >
                             <img class="banner__imagen" src="assets/images/banner-contacto.webp" alt="" title="" loading="lazy" width="698" height="500">
-                        </div>
+                        </picture>
                     </section>
                     <section class="banner" data-indice="1">                    
                         <div class="banner__texto banner__texto--reverse">
@@ -138,9 +139,10 @@
                             <p>Impuesto sobre el incremento del valor del terreno de naturaleza urbana.</p>
                             <button aria-label="Ir a la Sede Electrónica" title="Ir a la Sede Electrónica" class="banner__button">Sede Electrónica</button>
                         </div>
-                        <div class="banner__picture">
+                        <picture class="banner__picture">
+                            <source srcset="assets/images/app-banner-tramites.webp" media="(max-width: 1024px)" loading="lazy" >
                             <img class="banner__imagen" src="assets/images/banner-tramites.webp" alt="" title="" loading="lazy" width="706" height="500">
-                        </div>
+                        </picture>
                     </section>
                     <button aria-label="Ir al siguiente banner" title="Ir al siguiente banner" class="slider-banner__button slider-banner__button--siguiente"><i class="slider-banner__icon fas fa-angle-right"></i></button>
                 </div>
@@ -702,7 +704,7 @@
                 <p>El sistema de gestión del Organismo Autónomo de Gestión Económica y Recaudación (OAGER) ha sido evaluado y certificado en cuanto al cumplimiento de los requisitos de <a class="footer__link" aria-label="Ir a Certificaciones ISO" title="Ir a Certificaciones ISO" href="https://www.oager.com/contenidos.aspx?ID=288">ISO 9001:2015 y 27001:2013</a> para la actividad de Servicios de Recaudación, Gestión e Inspección Tributaria.</p>
             </div>
             <div class="footer__logos">
-                <a class="footer__link" target="_blank" aria-label="Ir a la ubicación del OAGER" title="Ir a la ubicación del OAGER" href="https://www.google.es/maps/place/Organismo+Aut%C3%B3nomo+de+Gesti%C3%B3n+Econ%C3%B3mica+y+Recaudaci%C3%B3n/@40.9665652,-5.663921,18z/data=!4m5!3m4!1s0xd3f26168ce3a127:0x4f92f5ececccfe86!8m2!3d40.9660609!4d-5.6652023?shorturl=1" target="_blank" rel="noreferrer">
+                <a class="footer__link" aria-label="Ir a la ubicación del OAGER" title="Ir a la ubicación del OAGER" href="https://www.google.es/maps/place/Organismo+Aut%C3%B3nomo+de+Gesti%C3%B3n+Econ%C3%B3mica+y+Recaudaci%C3%B3n/@40.9665652,-5.663921,18z/data=!4m5!3m4!1s0xd3f26168ce3a127:0x4f92f5ececccfe86!8m2!3d40.9660609!4d-5.6652023?shorturl=1" target="_blank" rel="noreferrer">
                     <img class="footer__image footer__image--circle" src="assets/images/fachada-oager.webp" alt="Fachada OAGER Salamanca" title="Fachada OAGER Salamanca" loading="lazy" width="427" height="427"></a>
             </div>
             <div class="footer__container">

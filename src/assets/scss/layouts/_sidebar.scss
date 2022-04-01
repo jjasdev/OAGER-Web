@@ -5,9 +5,12 @@
 /* Sidebar */
 .date {
     font-weight: 300;
-    @include mx.createFlex(row, flex-start, center) {
+    @include mx.createFlex(row, center, center) {
         gap: fn.pxTorem(8px);
     };
+    @include mx.addBreakpoint('large') {
+        display: none;
+    }
 
     &__container {
         @include mx.createFlex(row, flex-start, center) {
@@ -21,32 +24,31 @@
     }
 }
 .contact {
-    height: 100%;
     position: relative;
     font-weight: 300;
     @include mx.createFlex(row, flex-end, center);
+    @include mx.addBreakpoint('large') {
+        justify-content: center;
+    }
 
     &__telephone,
     &__schedule {
-        padding-right: fn.pxTorem(16px);              
         @include mx.createFlex(row, center, center, auto) {
             gap: fn.pxTorem(8px);
         };
     }
 
-    &__telephone {
+    &__telephone-link { 
+        padding-right: fn.pxTorem(16px); 
         border-right: 1px solid rgba(var.getColor('color-border'), 0.5); 
-    }
 
-    &__telephone-link {        
         &:hover {
             color: var(--color-light);
         }
     }
 
     &__schedule {
-        height: 100%;
-        padding-left: fn.pxTorem(16px);
+        padding: fn.pxTorem(16px);
         cursor: pointer;
 
         &:hover > &-text,
@@ -57,6 +59,15 @@
         &:hover > .contact__submenu {            
             @include mx.createFlex(column, center, center, auto); 
             @include mx.addTransition(display); 
+            @include mx.addBreakpoint('medium') {
+                width: 100%;
+            }
+        }
+
+        &-text {
+            @include mx.addBreakpoint('small') {
+                display: none;
+            }
         }
 
         &-state {            
@@ -81,6 +92,14 @@
             top: fn.pxTorem(50px);
             right: fn.pxTorem(65px);
         };        
+        @include mx.addBreakpoint('large') {
+            right: 50%;
+            transform: translateX(63%);
+        }
+        @include mx.addBreakpoint('medium') {
+            right: 50%;
+            transform: translateX(50%);
+        }
 
         &-item {
             width: 100%;

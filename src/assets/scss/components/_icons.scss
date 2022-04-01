@@ -25,10 +25,41 @@
     }
 }
 
+.main-nav__icon {
+    @include mx.addBreakpoint('medium') {
+        transform: scale(1.5);
+    }
+
+    &--big {
+        transform: scale(2);
+        position: absolute;
+        top: fn.pxTorem(75px); 
+        right: fn.pxTorem(100px);
+        align-self: flex-end;
+        @include mx.addBreakpoint('small') {
+            position: relative;
+            top: 0; 
+            right: 0;
+            align-self: center;
+        }
+    }
+
+    &--open {
+        display: block;
+    }
+
+    &--close {
+        display: none;
+    }
+}
+
 .slider-banner__icon {
     font-size: var.getTypography('xxl');
     color: rgba(var.getColor('color-light'), 0.8);
-    cursor: pointer;
+    cursor: pointer;   
+    @include mx.addBreakpoint('small') {
+        font-size: var.getTypography('xl');
+    } 
 
     &:hover {
         color: var(--color-light);
@@ -39,6 +70,9 @@
     font-size: var.getTypography('xl');
     color: var(--color-primary); 
     margin-top: fn.pxTorem(16px) ; 
+    @include mx.addBreakpoint('large') {
+        margin: 0;
+    }
 }
 
 .avisos__icon {
