@@ -4,10 +4,16 @@
 
 /* Mapa */
 .mapa {
-    padding: fn.pxTorem(50px) fn.pxTorem(100px); 
+    padding: fn.pxTorem(30px) fn.pxTorem(100px); 
     @include mx.createFlex(column, flex-start, center) {
         gap: fn.pxTorem(50px);
     };
+    @include mx.addBreakpoint('medium') {
+        padding: fn.pxTorem(30px) fn.pxTorem(50px); 
+    } 
+    @include mx.addBreakpoint('small') {
+        padding: fn.pxTorem(30px) fn.pxTorem(30px); 
+    }
 
     h2 {
         font-size: var.getTypography('xxl');
@@ -20,6 +26,9 @@
             gap: fn.pxTorem(50px);
             height: max-content;
         };
+        @include mx.addBreakpoint('large') {
+            flex-direction: column;
+        }
     }
 
     &__mapa {
@@ -63,9 +72,10 @@
     }
 
     &__oficinas {        
-        @include mx.createFlex(column, center, center) {
-            width: 50%;
-        };
+        @include mx.createFlex(column, center, center, 50%);
+        @include mx.addBreakpoint('large') {
+            width: 100%;
+        }
         
         &-item {
             width: 100%;            

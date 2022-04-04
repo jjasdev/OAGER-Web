@@ -34,6 +34,7 @@
         @include mx.addBreakpoint('medium') {
             align-items: center;
             padding: 0 fn.pxTorem(50px) fn.pxTorem(100px);
+            background-image: linear-gradient(to bottom, rgba(var.getColor('color-background-primary'), 0.7) 0%, rgba(var.getColor('color-background-primary'), 0.7) 100%), url('../images/app-plaza-salamanca.webp');
         }
         @include mx.addBreakpoint('small') {
             align-items: center;

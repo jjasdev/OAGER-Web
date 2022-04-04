@@ -105,6 +105,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
   font-weight: 700;
   color: var(--color-title);
 }
@@ -153,7 +154,6 @@ p {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  text-transform: uppercase;
   border-radius: 5px;
   border: 1px solid var(--color-border);
   background: linear-gradient(to left, var(--color-light) 50%, var(--color-text) 50%) no-repeat right/200%;
@@ -332,6 +332,7 @@ p {
   .header__slider {
     align-items: center;
     padding: 0 3.125rem 6.25rem;
+    background-image: linear-gradient(to bottom, rgba(30, 42, 59, 0.7) 0%, rgba(30, 42, 59, 0.7) 100%), url("../images/app-plaza-salamanca.webp");
   }
 }
 @media screen and (max-width: 596px) {
@@ -753,7 +754,7 @@ p {
   .bienvenida .accesos-directos {
     flex-direction: column;
     padding: 0;
-    transform: translateY(-20%);
+    transform: translateY(-12%);
   }
   .bienvenida .accesos-directos::before {
     position: absolute;
@@ -812,6 +813,15 @@ p {
   }
   .bienvenida .accesos-directos__item:last-child {
     border-bottom: none;
+  }
+}
+.bienvenida .accesos-directos__item:first-child {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .bienvenida .accesos-directos__item:first-child {
+    display: block;
+    border-bottom: 3px solid var(--color-primary);
   }
 }
 .bienvenida .accesos-directos__item:hover {
@@ -904,6 +914,7 @@ p {
 }
 @media screen and (max-width: 1024px) {
   .bienvenida .accesos-directos__text {
+    padding: 1rem;
     text-transform: uppercase;
     justify-self: flex-start;
   }
@@ -911,11 +922,14 @@ p {
 @media screen and (max-width: 596px) {
   .bienvenida .accesos-directos__text {
     justify-self: center;
-    padding: 1rem;
   }
 }
+.bienvenida .accesos-directos__text--title {
+  text-transform: none;
+  font-size: 3rem;
+  color: var(--color-primary);
+}
 .bienvenida__container {
-  padding-top: 1rem;
   color: rgba(255, 255, 255, 0.8);
   display: grid;
   grid-template-rows: auto;
@@ -923,12 +937,37 @@ p {
   gap: 1.25rem;
   width: 100%;
 }
+@media screen and (max-width: 1024px) {
+  .bienvenida__container {
+    grid-template-columns: 60% auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bienvenida__container {
+    grid-template-columns: 1fr;
+  }
+}
 .bienvenida__discurso {
   padding-top: 1rem;
+}
+@media screen and (max-width: 1200px) {
+  .bienvenida__discurso {
+    padding-top: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .bienvenida__discurso {
+    padding-bottom: 9.375rem;
+  }
 }
 .bienvenida__discurso h2 {
   font-size: 3rem;
   color: var(--color-primary);
+}
+@media screen and (max-width: 768px) {
+  .bienvenida__discurso h2 {
+    text-align: center;
+  }
 }
 .bienvenida__discurso-texto {
   padding-bottom: 1.25rem;
@@ -937,14 +976,46 @@ p {
   font-weight: 400;
   font-size: 1.1rem;
 }
+@media screen and (max-width: 768px) {
+  .bienvenida__discurso-texto {
+    text-align: center;
+  }
+}
 .bienvenida__discurso-texto::first-letter {
   font-size: 3rem;
+}
+@media screen and (max-width: 768px) {
+  .bienvenida__discurso-nombre {
+    text-align: right;
+  }
 }
 .bienvenida__discurso-cargo {
   font-weight: 300;
 }
+@media screen and (max-width: 768px) {
+  .bienvenida__discurso-cargo {
+    text-align: right;
+  }
+}
 .bienvenida__picture {
   justify-self: center;
+}
+@media screen and (max-width: 1024px) {
+  .bienvenida__picture {
+    align-self: flex-end;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bienvenida__picture {
+    position: absolute;
+    right: 50px;
+    opacity: 0.2;
+  }
+}
+@media screen and (max-width: 596px) {
+  .bienvenida__picture {
+    right: 30px;
+  }
 }
 .bienvenida__picture-imagen {
   max-height: 25rem;
@@ -953,27 +1024,37 @@ p {
 
 /* Avisos */
 .avisos {
-  margin-top: -3.5rem;
+  margin-top: -5rem;
   background-color: var(--color-background-primary);
 }
-.avisos h2 {
-  display: none;
-}
 .avisos__tabs {
-  margin-left: 20%;
-  text-transform: uppercase;
+  margin-left: 6.25rem;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: auto;
+  width: calc(100% - 100px);
   gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .avisos__tabs {
+    margin-left: 3.125rem;
+    width: calc(100% - 50px);
+  }
+}
+@media screen and (max-width: 596px) {
+  .avisos__tabs {
+    margin-left: 1.875rem;
+    width: calc(100% - 30px);
+  }
 }
 .avisos__tabs-item {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom: 5px solid var(--color-light);
   padding: 1rem;
+  z-index: 10;
   background-color: var(--color-light);
   cursor: pointer;
 }
@@ -984,7 +1065,7 @@ p {
   border-bottom: 5px solid var(--color-background-primary);
 }
 .avisos__container {
-  margin-left: 20%;
+  margin-left: 6.25rem;
   background-color: var(--color-light);
   display: grid;
   grid-template-rows: repeat(3, auto);
@@ -992,7 +1073,19 @@ p {
   gap: 0rem;
   grid-template-areas: "arrows" "notificacion" "indicator";
   height: max-content;
-  width: 80%;
+  width: calc(100% - 100px);
+}
+@media screen and (max-width: 768px) {
+  .avisos__container {
+    margin-left: 3.125rem;
+    width: calc(100% - 50px);
+  }
+}
+@media screen and (max-width: 596px) {
+  .avisos__container {
+    margin-left: 1.875rem;
+    width: calc(100% - 30px);
+  }
 }
 .avisos__notification {
   position: relative;
@@ -1086,6 +1179,16 @@ p {
   width: 100%;
   gap: 3.125rem;
 }
+@media screen and (max-width: 768px) {
+  .secciones {
+    padding: 3.125rem 3.125rem;
+  }
+}
+@media screen and (max-width: 596px) {
+  .secciones {
+    padding: 3.125rem 1.875rem;
+  }
+}
 .secciones h2 {
   font-size: 3rem;
   color: var(--color-primary);
@@ -1175,13 +1278,23 @@ p {
 
 /* Mapa */
 .mapa {
-  padding: 3.125rem 6.25rem;
+  padding: 1.875rem 6.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   gap: 3.125rem;
+}
+@media screen and (max-width: 768px) {
+  .mapa {
+    padding: 1.875rem 3.125rem;
+  }
+}
+@media screen and (max-width: 596px) {
+  .mapa {
+    padding: 1.875rem 1.875rem;
+  }
 }
 .mapa h2 {
   font-size: 3rem;
@@ -1196,6 +1309,11 @@ p {
   width: 100%;
   gap: 3.125rem;
   height: max-content;
+}
+@media screen and (max-width: 1024px) {
+  .mapa__container {
+    flex-direction: column;
+  }
 }
 .mapa__mapa {
   width: 50%;
@@ -1235,8 +1353,12 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
   width: 50%;
+}
+@media screen and (max-width: 1024px) {
+  .mapa__oficinas {
+    width: 100%;
+  }
 }
 .mapa__oficinas-item {
   width: 100%;
@@ -1317,6 +1439,23 @@ p {
   grid-template-areas: "cert-logos cert-texto" "office-img office-texto";
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .footer__main {
+    padding: 3.125rem 3.125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 596px) {
+  .footer__main {
+    padding: 3.125rem 1.875rem;
+  }
+}
 .footer__logos {
   display: flex;
   flex-direction: row;
@@ -1324,6 +1463,16 @@ p {
   justify-content: flex-end;
   width: 100%;
   gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .footer__logos {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer__logos--padding-top {
+    padding-top: 1rem;
+  }
 }
 .footer__image {
   max-width: 5rem;
@@ -1363,6 +1512,22 @@ p {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 1rem;
+}
+@media screen and (max-width: 1200px) {
+  .footer__links {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer__links {
+    padding: 2rem 3.125rem;
+  }
+}
+@media screen and (max-width: 596px) {
+  .footer__links {
+    padding: 2rem 1.875rem;
+  }
 }
 .footer__nav {
   display: flex;
@@ -1371,13 +1536,31 @@ p {
   justify-content: flex-end;
   width: auto;
 }
+@media screen and (max-width: 768px) {
+  .footer__nav {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 .footer__nav-item {
   padding: 0 1rem;
   border-right: 1px solid rgba(230, 230, 234, 0.5);
   color: rgba(255, 255, 255, 0.8);
 }
+@media screen and (max-width: 768px) {
+  .footer__nav-item {
+    text-transform: uppercase;
+    padding: 0;
+    border-right: 0;
+  }
+}
 .footer__nav-item:last-child {
   border-right: none;
+}
+@media screen and (max-width: 596px) {
+  .footer__copy {
+    text-align: center;
+  }
 }
 .footer__copy-oager {
   color: var(--color-primary);

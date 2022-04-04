@@ -22,7 +22,7 @@
         @include mx.addBreakpoint('large') {
             flex-direction: column;
             padding: 0;
-            transform: translateY(-20%);
+            transform: translateY(-12%);
             @include mx.createPseudoelement(before) {
                 background: var(--color-light);
                 width: fn.pxTorem(80px);
@@ -73,6 +73,13 @@
 
                 &:last-child {
                     border-bottom: none;
+                }
+            }
+            &:first-child {
+                display: none;
+                @include mx.addBreakpoint('large') {
+                    display: block;                   
+                    border-bottom: 3px solid var(--color-primary);
                 }
             }
 
@@ -149,33 +156,53 @@
             }
         }
 
-        &__text {
+        &__text {            
             text-transform: capitalize;
             @include mx.addBreakpoint('large') {
+                padding: fn.pxTorem(16px);
                 text-transform: uppercase;
                 justify-self: flex-start;
             }
             @include mx.addBreakpoint('small') {
                 justify-self: center;
-                padding: fn.pxTorem(16px);
+            }
+
+            &--title {
+                text-transform: none;
+                font-size: var.getTypography('xxl');
+                color: var(--color-primary);
             }
         }
     }
 
     &__container { 
-        padding-top: fn.pxTorem(16px);
         color: rgba(var.getColor('color-light'), 0.8);
         @include mx.createGrid(20px,auto, 60% 40%) {
             width: 100%;
-        }; 
+        };
+        @include mx.addBreakpoint('large') {
+            grid-template-columns: 60% auto;
+        } 
+        @include mx.addBreakpoint('medium') {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__discurso {
         padding-top: fn.pxTorem(16px);
+        @include mx.addBreakpoint('xlarge') {
+            padding-top: 0;    
+        }
+        @include mx.addBreakpoint('large') {
+            padding-bottom: fn.pxTorem(150px);     
+        }
          
         h2 {
             font-size: var.getTypography('xxl');
             color: var(--color-primary);
+            @include mx.addBreakpoint('medium') {            
+                text-align: center;
+            }
         }
         
         &-texto {
@@ -184,19 +211,42 @@
             font-family: 'Kalam', cursive;
             font-weight: 400;
             font-size: var.getTypography('m');
+            @include mx.addBreakpoint('medium') {            
+                text-align: center;
+            }
             
             &::first-letter {
                 font-size: var.getTypography('xxl');
             }
         }
 
+        &-nombre {
+            @include mx.addBreakpoint('medium') {            
+                text-align: right;
+            }
+        }
+
         &-cargo {
             font-weight: 300;
+            @include mx.addBreakpoint('medium') {            
+                text-align: right;
+            }
         }
     }
 
     &__picture {        
         justify-self: center;
+        @include mx.addBreakpoint('large') {            
+            align-self: flex-end;
+        } 
+        @include mx.addBreakpoint('medium') {            
+            position: absolute;
+            right: 50px;
+            opacity: .2;
+        }
+        @include mx.addBreakpoint('small') {            
+            right: 30px;
+        }
 
         &-imagen {
             max-height: fn.pxTorem(400px);

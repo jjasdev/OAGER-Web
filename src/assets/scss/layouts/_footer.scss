@@ -27,12 +27,31 @@
                                 'office-img office-texto') {
             width: 100%;
         }
+        @include mx.addBreakpoint('medium') {
+            padding: fn.pxTorem(50px) fn.pxTorem(50px);
+            @include mx.createFlex(column, center, center) {
+                gap: fn.pxTorem(16px);
+                text-align: center;
+            };
+        } 
+        @include mx.addBreakpoint('small') {
+            padding: fn.pxTorem(50px) fn.pxTorem(30px); 
+        } 
     }
 
     &__logos {
         @include mx.createFlex(row, flex-end, center) {
             gap: fn.pxTorem(16px);
         };
+        @include mx.addBreakpoint('medium') {
+            justify-content: center;
+        }
+
+        &--padding-top {
+            @include mx.addBreakpoint('medium') {
+                padding-top: fn.pxTorem(16px);
+            }            
+        }
     }
 
     &__image {
@@ -76,15 +95,35 @@
     &__links {
         padding: fn.pxTorem(32px) fn.pxTorem(100px); 
         background-color: var(--color-background-footer);
-        @include mx.createFlex(row, space-between, center);
+        @include mx.createFlex(row, space-between, center) {
+            gap: fn.pxTorem(16px);
+        };
+        @include mx.addBreakpoint('xlarge') {
+            flex-direction: column;            
+        }
+        @include mx.addBreakpoint('medium') {
+            padding: fn.pxTorem(32px) fn.pxTorem(50px);
+        } 
+        @include mx.addBreakpoint('small') {
+            padding: fn.pxTorem(32px) fn.pxTorem(30px); 
+        }
     }
 
     &__nav {
         @include mx.createFlex(row, flex-end, center, auto);
+        @include mx.addBreakpoint('medium') {
+            flex-direction: column;
+            justify-content: center;
+        } 
         &-item {
             padding: 0 fn.pxTorem(16px);
             border-right: 1px solid rgba(var.getColor('color-border'), 0.5); 
             color: rgba(var.getColor('color-light'), 0.8);
+            @include mx.addBreakpoint('medium') {
+                text-transform: uppercase;
+                padding: 0;
+                border-right: 0;
+            } 
 
             &:last-child {
                 border-right: none;
@@ -93,6 +132,9 @@
     }
 
     &__copy {
+        @include mx.addBreakpoint('small') {
+            text-align: center;
+        } 
         &-oager {
             color: var(--color-primary);
         }

@@ -4,25 +4,30 @@
 
 /* Avisos */
 .avisos {
-    margin-top: fn.pxTorem(-56px);
+    margin-top: fn.pxTorem(-80px);
     background-color: var(--color-background-primary);
 
-    h2 {
-        display: none;
-    }
-
     &__tabs {
-        margin-left: 20%;
-        text-transform: uppercase;
-        @include mx.createFlex(row, flex-start, center, auto) {
+        margin-left: fn.pxTorem(100px); 
+        font-size: var.getTypography('l');
+        @include mx.createFlex(row, flex-start, center, calc(100% - 100px)) {
             gap: fn.pxTorem(16px);
-        };        
+        }; 
+        @include mx.addBreakpoint('medium') {
+            margin-left: fn.pxTorem(50px); 
+            width: calc(100% - 50px); 
+        } 
+        @include mx.addBreakpoint('small') {
+            margin-left: fn.pxTorem(30px); 
+            width: calc(100% - 30px); 
+        }      
 
         &-item {            
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
             border-bottom: 5px solid var(--color-light);
             padding: fn.pxTorem(16px);
+            z-index: 10;
             background-color: var(--color-light);            
             cursor: pointer;
 
@@ -37,7 +42,7 @@
     }
 
     &__container {
-        margin-left: 20%;
+        margin-left: fn.pxTorem(100px); 
         background-color: var(--color-light);
         @include mx.createGrid(0px, 
                                 repeat(3, auto),
@@ -46,8 +51,16 @@
                                 'notificacion'
                                 'indicator') {
             height: max-content;
-            width: calc(100% - 20%);
+            width: calc(100% - 100px); 
         };
+        @include mx.addBreakpoint('medium') {
+            margin-left: fn.pxTorem(50px); 
+            width: calc(100% - 50px); 
+        }
+        @include mx.addBreakpoint('small') {
+            margin-left: fn.pxTorem(30px); 
+            width: calc(100% - 30px); 
+        }
     }
 
     &__notification {
