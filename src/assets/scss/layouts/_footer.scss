@@ -121,12 +121,15 @@
             color: rgba(var.getColor('color-light'), 0.8);
             @include mx.addBreakpoint('medium') {
                 text-transform: uppercase;
-                padding: 0;
+                padding: 0 0 fn.pxTorem(8px);
                 border-right: 0;
             } 
 
             &:last-child {
                 border-right: none;
+                @include mx.addBreakpoint('medium') {
+                    padding-bottom: 0;
+                } 
             }
         }
     }

@@ -1550,12 +1550,17 @@ p {
 @media screen and (max-width: 768px) {
   .footer__nav-item {
     text-transform: uppercase;
-    padding: 0;
+    padding: 0 0 0.5rem;
     border-right: 0;
   }
 }
 .footer__nav-item:last-child {
   border-right: none;
+}
+@media screen and (max-width: 768px) {
+  .footer__nav-item:last-child {
+    padding-bottom: 0;
+  }
 }
 @media screen and (max-width: 596px) {
   .footer__copy {
