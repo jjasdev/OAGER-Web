@@ -76,18 +76,22 @@
     @include mx.createFlex(column, center, center);
 
     h1 {
-        height: fn.pxTorem(130px);
+        min-height: fn.pxTorem(130px);
+        text-align: center;
         font-size: var.getTypography('xxl');
         color: var(--color-light);
     }
 
     &__migas {
-        align-self: flex-start;
         padding: fn.pxTorem(16px) 0;
         color: var(--color-light);
         @include mx.createFlex(row, flex-start, center) {
             gap: fn.pxTorem(8px);
         };
+
+        @include mx.addBreakpoint('medium') {
+            justify-content: center;
+        }
     }
 
     &__enlace {

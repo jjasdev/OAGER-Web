@@ -28,12 +28,12 @@
         
         @include mx.addBreakpoint('medium') {
             align-items: center;
-            padding: 0 fn.pxTorem(50px) fn.pxTorem(100px);
+            padding: 0 fn.pxTorem(50px);
             background-image: linear-gradient(to bottom, rgba(var.getColor('color-background-primary'), 0.7) 0%, rgba(var.getColor('color-background-primary'), 0.7) 100%), url('../images/app-plaza-salamanca.webp');
-        }
+        } 
+        
         @include mx.addBreakpoint('small') {
-            align-items: center;
-            padding: 0 fn.pxTorem(30px) fn.pxTorem(100px);
+            padding: 0 fn.pxTorem(30px);
         }
 
         &--index {
@@ -44,6 +44,12 @@
                                     rgba(var.getColor('color-background-primary'), 0.7),
                                     var.getImageURL('header-background'),
                                     cover);
+            @include mx.addBreakpoint('medium') {
+                padding-bottom: fn.pxTorem(100px);
+            }
+            @include mx.addBreakpoint('small') {
+                padding-bottom: fn.pxTorem(100px);
+            }
         }
 
         &--generic {

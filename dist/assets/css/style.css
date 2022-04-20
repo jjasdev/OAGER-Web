@@ -326,14 +326,13 @@ p {
 @media screen and (max-width: 768px) {
   .header__slider {
     align-items: center;
-    padding: 0 3.125rem 6.25rem;
+    padding: 0 3.125rem;
     background-image: linear-gradient(to bottom, rgba(30, 42, 59, 0.7) 0%, rgba(30, 42, 59, 0.7) 100%), url("../images/app-plaza-salamanca.webp");
   }
 }
 @media screen and (max-width: 596px) {
   .header__slider {
-    align-items: center;
-    padding: 0 1.875rem 6.25rem;
+    padding: 0 1.875rem;
   }
 }
 .header__slider--index {
@@ -343,6 +342,16 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media screen and (max-width: 768px) {
+  .header__slider--index {
+    padding-bottom: 6.25rem;
+  }
+}
+@media screen and (max-width: 596px) {
+  .header__slider--index {
+    padding-bottom: 6.25rem;
+  }
 }
 .header__slider--generic {
   background-image: linear-gradient(to bottom, rgba(30, 42, 59, 0.7) 0%, rgba(30, 42, 59, 0.7) 100%), url("../images/sede-oager.webp");
@@ -595,12 +604,12 @@ p {
   width: 100%;
 }
 .slider-cabecera h1 {
-  height: 8.125rem;
+  min-height: 8.125rem;
+  text-align: center;
   font-size: 3rem;
   color: var(--color-light);
 }
 .slider-cabecera__migas {
-  align-self: flex-start;
   padding: 1rem 0;
   color: var(--color-light);
   display: flex;
@@ -609,6 +618,11 @@ p {
   justify-content: flex-start;
   width: 100%;
   gap: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .slider-cabecera__migas {
+    justify-content: center;
+  }
 }
 .slider-cabecera__enlace:hover {
   color: var(--color-primary);
