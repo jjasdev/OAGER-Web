@@ -21,16 +21,11 @@
     }
 
     &__slider {   
-        padding: 0 fn.pxTorem(100px) fn.pxTorem(100px);      
+        padding: 0 fn.pxTorem(100px);      
         @include mx.createFlex(column, flex-start, flex-start) {
             height: max-content;
-            gap: fn.pxTorem(32px);
         };
-        @include mx.addImageGradient(bottom,
-                                    rgba(var.getColor('color-background-primary'), 0.7),
-                                    rgba(var.getColor('color-background-primary'), 0.7),
-                                    var.getImageURL('header-background'),
-                                    cover);
+        
         @include mx.addBreakpoint('medium') {
             align-items: center;
             padding: 0 fn.pxTorem(50px) fn.pxTorem(100px);
@@ -39,6 +34,24 @@
         @include mx.addBreakpoint('small') {
             align-items: center;
             padding: 0 fn.pxTorem(30px) fn.pxTorem(100px);
+        }
+
+        &--index {
+            padding-bottom: fn.pxTorem(100px);            
+            gap: fn.pxTorem(32px);
+            @include mx.addImageGradient(bottom,
+                                    rgba(var.getColor('color-background-primary'), 0.7),
+                                    rgba(var.getColor('color-background-primary'), 0.7),
+                                    var.getImageURL('header-background'),
+                                    cover);
+        }
+
+        &--generic {
+            @include mx.addImageGradient(bottom,
+                                    rgba(var.getColor('color-background-primary'), 0.7),
+                                    rgba(var.getColor('color-background-primary'), 0.7),
+                                    var.getImageURL('header-background-generic'),
+                                    cover);
         }
     }
 }

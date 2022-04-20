@@ -315,18 +315,13 @@ p {
   }
 }
 .header__slider {
-  padding: 0 6.25rem 6.25rem;
+  padding: 0 6.25rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
   height: max-content;
-  gap: 2rem;
-  background-image: linear-gradient(to bottom, rgba(30, 42, 59, 0.7) 0%, rgba(30, 42, 59, 0.7) 100%), url("../images/plaza-salamanca.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 @media screen and (max-width: 768px) {
   .header__slider {
@@ -340,6 +335,20 @@ p {
     align-items: center;
     padding: 0 1.875rem 6.25rem;
   }
+}
+.header__slider--index {
+  padding-bottom: 6.25rem;
+  gap: 2rem;
+  background-image: linear-gradient(to bottom, rgba(30, 42, 59, 0.7) 0%, rgba(30, 42, 59, 0.7) 100%), url("../images/plaza-salamanca.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header__slider--generic {
+  background-image: linear-gradient(to bottom, rgba(30, 42, 59, 0.7) 0%, rgba(30, 42, 59, 0.7) 100%), url("../images/sede-oager.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Sidebar */
@@ -576,6 +585,39 @@ p {
   .slider-banner__container {
     gap: 1.25rem;
   }
+}
+
+.slider-cabecera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.slider-cabecera h1 {
+  height: 8.125rem;
+  font-size: 3rem;
+  color: var(--color-light);
+}
+.slider-cabecera__migas {
+  align-self: flex-start;
+  padding: 1rem 0;
+  color: var(--color-light);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+}
+.slider-cabecera__enlace:hover {
+  color: var(--color-primary);
+}
+.slider-cabecera__separador {
+  font-size: 0.8rem;
+}
+.slider-cabecera__pagina-actual {
+  font-weight: 300;
 }
 
 /* Navegación */

@@ -70,5 +70,37 @@
             gap: fn.pxTorem(20px);
         }
     } 
+}
 
+.slider-cabecera {
+    @include mx.createFlex(column, center, center);
+
+    h1 {
+        height: fn.pxTorem(130px);
+        font-size: var.getTypography('xxl');
+        color: var(--color-light);
+    }
+
+    &__migas {
+        align-self: flex-start;
+        padding: fn.pxTorem(16px) 0;
+        color: var(--color-light);
+        @include mx.createFlex(row, flex-start, center) {
+            gap: fn.pxTorem(8px);
+        };
+    }
+
+    &__enlace {
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+
+    &__separador {
+        font-size: var.getTypography('s');
+    }
+
+    &__pagina-actual {
+        font-weight: 300;
+    }
 }
