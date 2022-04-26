@@ -1,0 +1,32 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Menú lateral */
+.menu-lateral {
+    position: sticky;
+    top: 0;
+    padding: fn.pxTorem(50px) fn.pxTorem(16px) fn.pxTorem(16px);    
+    font-weight: 300;
+
+    &__item {        
+        @include mx.createFlex(column, flex-start, center);         
+    }
+
+    &__link {
+        padding: fn.pxTorem(8px);
+        height: 100%;
+        width: 100%;
+
+        &:hover {            
+            border-radius: 5px;
+            background: rgba(var.getColor('color-light'), 0.1);
+        }
+    }
+
+    h2 {
+        font-size: var.getTypography('xl');
+        color: var(--color-light);
+        padding-bottom: fn.pxTorem(30px);
+    }
+}

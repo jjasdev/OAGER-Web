@@ -76,7 +76,8 @@
     @include mx.createFlex(column, center, center);
 
     h1 {
-        min-height: fn.pxTorem(130px);
+        padding-bottom: fn.pxTorem(16px);
+        min-height: fn.pxTorem(130px);        
         text-align: center;
         font-size: var.getTypography('xxl');
         color: var(--color-light);

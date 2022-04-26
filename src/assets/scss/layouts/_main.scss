@@ -1,0 +1,27 @@
+@use '../utils/funciones' as fn;
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mx;
+
+/* Main */
+.main {
+    @include mx.createGrid(0px,auto,max-content 1fr) {        
+        width: 100%;
+    };
+
+    &__menu-lateral {
+        height: 100%;
+        background-color: var(--color-primary);
+        color: var(--color-light);
+    }
+
+    &__contenido {
+        padding: fn.pxTorem(50px) fn.pxTorem(100px); 
+
+        @include mx.addBreakpoint('medium') {
+            padding: fn.pxTorem(50px); 
+        }
+        @include mx.addBreakpoint('small') {
+            padding: fn.pxTorem(50px) fn.pxTorem(30px); 
+        }
+    }
+}
