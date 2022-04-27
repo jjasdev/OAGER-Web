@@ -92,5 +92,27 @@
 
 .menu-lateral__icon {
     align-self: center;
-    padding: fn.pxTorem(16px);
+    padding: fn.pxTorem(16px); 
+
+    &--open {
+        display: none!important;
+    }
+}
+
+.menu-lateral__desplegable-icon {
+    &:hover {
+        color: rgba(var.getColor('color-light'), 0.8);
+    }
+
+    &--big {
+        font-size: var.getTypography('l');
+    }
+
+    &--no-padding {
+        padding: 0;
+    }
+
+    &--open {
+        font-size: var.getTypography('xl');
+    }
 }

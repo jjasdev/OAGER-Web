@@ -46,6 +46,16 @@
   * @type {boolean}
   */
     let showMenu = false;  
+   /**
+  * Booleano que controla cuando desplegar y cuando ocultar el menú de navegación
+  * @type {boolean}
+  */
+    let showMenuLateral = false;  
+    /**
+     * Booleano que controla cuando desplegar y cuando ocultar el menú de navegación
+     * @type {boolean}
+     */
+    let showSubmenu = true; 
 
 
    //--FUNCIONES
@@ -174,6 +184,107 @@ function rellenarCeros(numero, longitudCifra) {
 
         showMenu = false;
     }    
+}
+/**
+  * Muestra el menú lateral al hacer clic en el icono de menú
+  * @returns {void}
+  */
+ function desplegarMenuLateral(){ 
+    const menuLateralContenedor = document.querySelector(".main__menu-lateral");
+    const menuLateral = document.querySelector(".menu-lateral");
+    const menuDesplegable = document.querySelector(".menu-lateral__desplegable");
+    const menuItem = document.querySelectorAll(".menu-lateral__item");
+    const menuLink = document.querySelectorAll(".menu-lateral__link");
+    const menuIcon = document.querySelectorAll(".menu-lateral__icon");
+
+    if (!showMenuLateral) {
+        menuLateralContenedor.classList.add('main__menu-lateral--open');
+        menuLateral.classList.add('menu-lateral--open');
+        menuDesplegable.firstElementChild.classList.add('menu-lateral__desplegable-icon--open');
+        menuDesplegable.firstElementChild.classList.remove('fa-stream');
+        menuDesplegable.firstElementChild.classList.add('fa-times');
+        menuDesplegable.firstElementChild.classList.add('fa-times');
+        menuItem.forEach(
+            function(item) {
+                item.classList.add('menu-lateral__item--open');
+            }
+        );
+        menuLink.forEach(
+            function(link) {
+                link.classList.add('menu-lateral__link--open');
+            }
+        );
+        menuIcon.forEach(
+            function(icon) {
+                icon.classList.add('menu-lateral__icon--open');
+            }
+        );
+        body.style.overflow = 'hidden';
+
+        showMenuLateral = true;
+    } else {
+        menuLateralContenedor.classList.remove('main__menu-lateral--open');
+        menuLateral.classList.remove('menu-lateral--open');
+        menuDesplegable.firstElementChild.classList.remove('menu-lateral__desplegable-icon--open');
+        menuDesplegable.firstElementChild.classList.add('fa-stream');
+        menuDesplegable.firstElementChild.classList.remove('fa-times');
+        menuDesplegable.firstElementChild.classList.remove('fa-times');
+        menuItem.forEach(
+            function(item) {
+                item.classList.remove('menu-lateral__item--open');
+            }
+        );
+        menuLink.forEach(
+            function(link) {
+                link.classList.remove('menu-lateral__link--open');
+            }
+        );
+        menuIcon.forEach(
+            function(icon) {
+                icon.classList.remove('menu-lateral__icon--open');
+            }
+        );
+        body.style.overflow = 'auto';
+
+        showMenuLateral = false;
+    }    
+}
+/**
+  * Muestra el submenú al pasar el ratón por encima y lo oculta al cuando no pasa por encima del elemento
+  * @returns {void}
+  */
+ function desplegarSubmenu(){ 
+    const iconMenuLateralOpen = document.querySelector(".menu-lateral__desplegable-icon");
+    iconMenuLateralOpen.addEventListener('click', desplegarMenuLateral);
+    
+    menuLateralSection.forEach(
+        function(enlace) {
+            enlace.addEventListener("mouseover", (event) =>{    
+                if (showSubmenu) {
+                    enlace.nextElementSibling.style.display = 'block';
+                    enlace.firstElementChild.style.background = 'transparent';
+                    enlace.style.background = 'rgba(255, 255, 255, 0.25)';
+                }   
+            });            
+            enlace.addEventListener("mouseout", (event) =>{  
+                if (showSubmenu) {
+                    enlace.nextElementSibling.style.display = 'none';
+                    enlace.style.background = 'transparent';
+                }        
+            });
+            enlace.nextElementSibling.addEventListener("mouseover", (event) =>{    
+                if (showSubmenu) {
+                    enlace.nextElementSibling.style.display = 'block';                
+                }      
+            });
+            enlace.nextElementSibling.addEventListener("mouseout", (event) =>{       
+                if (showSubmenu) {
+                    enlace.nextElementSibling.style.display = 'none';
+                    enlace.style.background = 'transparent';
+                }   
+            });
+        }
+    );    
 }
 /**
   * Muestra por defecto el elemento que hemos establecido en la configuración y le asocia su indicador
@@ -356,13 +467,20 @@ const mediaQuery768 = window.matchMedia('(max-width: 768px)');
 let responsive = false;
 if (window.innerWidth < 768){
     responsive = true;
+    showSubmenu = false;
 }
 mediaQuery768.addEventListener('change', function() {
     let cambioPantalla = this.matches;  
     if(cambioPantalla){
         responsive = true;
+        showSubmenu = false;
     }else{
         responsive = false;
+        showSubmenu = true;        
+    }
+    if (exists(menuLateralSection)){
+        desplegarSubmenu(); 
+        
     }
 }); 
 
@@ -534,26 +652,7 @@ if (exists(mapa)){
 const menuLateralSection = document.querySelectorAll('.menu-lateral__section');
 
 if (exists(menuLateralSection)){
-    menuLateralSection.forEach(
-        function(enlace) {
-            enlace.addEventListener("mouseover", (event) =>{       
-                enlace.nextElementSibling.style.display = 'block';
-                enlace.firstElementChild.style.background = 'transparent';
-                enlace.style.background = 'rgba(255, 255, 255, 0.1)';
-            });            
-            enlace.addEventListener("mouseout", (event) =>{       
-                enlace.nextElementSibling.style.display = 'none';
-                enlace.style.background = 'transparent';
-            });
-            enlace.nextElementSibling.addEventListener("mouseover", (event) =>{       
-                enlace.nextElementSibling.style.display = 'block';
-            });
-            enlace.nextElementSibling.addEventListener("mouseout", (event) =>{       
-                enlace.nextElementSibling.style.display = 'none';
-                enlace.style.background = 'transparent';
-            });
-        }
-    );
+    desplegarSubmenu();
 }
 
 

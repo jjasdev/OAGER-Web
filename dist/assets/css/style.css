@@ -255,6 +255,22 @@ p {
   align-self: center;
   padding: 1rem;
 }
+.menu-lateral__icon--open {
+  display: none !important;
+}
+
+.menu-lateral__desplegable-icon:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.menu-lateral__desplegable-icon--big {
+  font-size: 1.5rem;
+}
+.menu-lateral__desplegable-icon--no-padding {
+  padding: 0;
+}
+.menu-lateral__desplegable-icon--open {
+  font-size: 2rem;
+}
 
 /* Indicators */
 .slider-banner__indicator {
@@ -715,14 +731,41 @@ p {
 .main {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 240px 1fr;
   gap: 0rem;
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto;
+  }
 }
 .main__menu-lateral {
   height: 100%;
   background-color: var(--color-primary);
   color: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+.main__menu-lateral--open {
+  padding: 1.875rem 0;
+  height: 100vh;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1.875rem;
 }
 .main__contenido {
   padding: 3.125rem 6.25rem;
@@ -742,9 +785,20 @@ p {
 .menu-lateral {
   position: sticky;
   top: 0;
-  padding-top: 3.125rem;
   font-weight: 300;
   z-index: 10;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+@media screen and (max-width: 768px) {
+  .menu-lateral {
+    display: none;
+  }
+}
+.menu-lateral--open {
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 .menu-lateral__item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -757,6 +811,9 @@ p {
 .menu-lateral__item:last-child {
   border-bottom: 0;
 }
+.menu-lateral__item--open {
+  border-bottom: 0;
+}
 .menu-lateral__section {
   display: flex;
   flex-direction: row;
@@ -765,32 +822,85 @@ p {
   width: 100%;
 }
 .menu-lateral__link {
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem;
   height: 100%;
   width: 100%;
   grid-area: menu-item;
 }
 .menu-lateral__link:hover, .menu-lateral__link--active {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.25);
+}
+@media screen and (max-width: 768px) {
+  .menu-lateral__link:hover, .menu-lateral__link--active {
+    background: transparent;
+    color: var(--color-light) !important;
+  }
+}
+.menu-lateral__link--open {
+  border-bottom: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+.menu-lateral__link--open:hover {
+  background: transparent;
+  color: var(--color-light);
+}
+.menu-lateral__desplegable {
+  display: none;
+  width: 100%;
+  padding: 0.875rem;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .menu-lateral__desplegable {
+    display: block;
+    flex-direction: column;
+  }
 }
 .menu-lateral__submenu {
   display: none;
   position: absolute;
-  left: 15.625rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  left: 15.9375rem;
+  width: 240px;
+  border-radius: 10px;
   background-color: var(--color-primary);
-  width: 250px;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
 }
-.menu-lateral h2 {
-  font-size: 2rem;
-  color: var(--color-light);
-  padding-bottom: 1.875rem;
-  text-align: center;
+.menu-lateral__submenu .menu-lateral__item:first-child {
+  position: relative;
+}
+.menu-lateral__submenu .menu-lateral__item:first-child::after {
+  position: absolute;
+  content: "";
+  left: -15px;
+  top: 15px;
+  width: 0;
+  height: 0;
+  z-index: -1;
+  border-top: 10px solid transparent;
+  border-right: 20px solid var(--color-primary);
+  border-bottom: 10px solid transparent;
+  clear: both;
+}
+.menu-lateral__submenu .menu-lateral__item:first-child::before {
+  position: absolute;
+  content: "";
+  left: -15px;
+  top: 0;
   width: 100%;
-  border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  z-index: -1;
 }
 
 /* Contenido */
+.contenido h2 {
+  padding-bottom: 1.875rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
 /* Banner */
 .banner {
   position: relative;

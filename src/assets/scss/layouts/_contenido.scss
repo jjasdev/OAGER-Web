@@ -3,3 +3,11 @@
 @use '../utils/mixins' as mx;
 
 /* Contenido */
+.contenido {
+    h2 {
+        padding-bottom: fn.pxTorem(30px);
+        width: 100%;
+        text-align: center;
+        font-size: var.getTypography('xl');
+    }
+}
