@@ -89,3 +89,8 @@
     grid-area: icono-card;
     font-size: var.getTypography('xl');
 }
+
+.menu-lateral__icon {
+    align-self: center;
+    padding: fn.pxTorem(16px);
+}

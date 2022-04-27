@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Oswald:wght@300;500;700&family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script defer src="assets/js/main.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/no-prefix.min.js"></script>
     <meta name="description" lang="es" content="Servicio web del Ayuntamiento de Salamanca que gestiona la atención al contribuyente a través del cual todos los ciudadanos podrán mantener un contacto directo con el órgano rector de la ciudad." />
     <meta name="keywords" content="salamanca, ayuntamiento, recaudación, ciudadanos, gestión, tributos">
@@ -135,10 +135,13 @@
                         <h2>Secciones</h2>
                     </li>                           
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link menu-lateral__link--active" aria-label="Ir a Bienvenida" title="Ir a Bienvenida" href="#">Bienvenida del alcalde</a>
+                        <a class="menu-lateral__link" aria-label="Ir a Bienvenida" title="Ir a Bienvenida" href="#">Bienvenida del alcalde</a>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Organización" title="Ir a Organización" href="#">Organización</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Organización" title="Ir a Organización" href="#">Organización</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a Organización política" title="Ir a Organización política" href="#">Organización política</a>
@@ -164,7 +167,10 @@
                         </ul>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Normativa" title="Ir a Normativa" href="#">Normativa</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Normativa" title="Ir a Normativa" href="#">Normativa</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a Legislación" title="Ir a Legislación" href="#">Legislación</a>
@@ -196,10 +202,16 @@
                         <a class="menu-lateral__link" aria-label="Ir a Calendario del contribuyente" title="Ir a Calendario del contribuyente" href="#">Calendario del contribuyente</a>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Tramitación electrónica" title="Ir a Tramitación electrónica" href="#">Tramitación electrónica</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Tramitación electrónica" title="Ir a Tramitación electrónica" href="#">Tramitación electrónica</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
-                                <a class="menu-lateral__link" aria-label="Ir a Tramitación electrónica" title="Ir a Tramitación electrónica" href="#">Tramitación electrónica</a>
+                                <div class="menu-lateral__section">
+                                    <a class="menu-lateral__link" aria-label="Ir a Tramitación electrónica" title="Ir a Tramitación electrónica" href="#">Tramitación electrónica</a>
+                                    <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                                </div>
                                 <ul class="menu-lateral__submenu">
                                     <li class="menu-lateral__item">
                                         <a class="menu-lateral__link" aria-label="Ir a Atención al contribuyente" title="Ir a Atención al contribuyente" href="#">Atención al contribuyente</a>
@@ -228,7 +240,10 @@
                                 <a class="menu-lateral__link" aria-label="Ir a Cotejo de documentos - CSV" title="Ir a Cotejo de documentos - CSV" href="#">Cotejo de documentos - CSV</a>
                             </li>
                             <li class="menu-lateral__item">
-                                <a class="menu-lateral__link" aria-label="Ir a Sede electrónica" title="Ir a Sede electrónica" href="#">Sede electrónica</a>
+                                <div class="menu-lateral__section">
+                                    <a class="menu-lateral__link" aria-label="Ir a Sede electrónica" title="Ir a Sede electrónica" href="#">Sede electrónica</a>
+                                    <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                                </div>
                                 <ul class="menu-lateral__submenu">
                                     <li class="menu-lateral__item">
                                         <a class="menu-lateral__link" aria-label="Ir a Sede electrónica Con certificado digital" title="Ir a Sede electrónica Con certificado digital" href="#">Con certificado digital</a>
@@ -244,7 +259,10 @@
                         </ul>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Buzón del contribuyente" title="Ir a Buzón del contribuyente" href="#">Buzón del contribuyente</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Buzón del contribuyente" title="Ir a Buzón del contribuyente" href="#">Buzón del contribuyente</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a Buzón Con certificado digital" title="Ir a Buzón Con certificado digital" href="#">Con certificado digital</a>
@@ -255,7 +273,10 @@
                         </ul>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Defensor del contribuyente" title="Ir a Defensor del contribuyente" href="#">Defensor del contribuyente</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Defensor del contribuyente" title="Ir a Defensor del contribuyente" href="#">Defensor del contribuyente</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a Derechos y garantías del contribuyente" title="Ir a Derechos y garantías del contribuyente" href="#">Derechos y garantías del contribuyente</a>
@@ -284,10 +305,13 @@
                         <a class="menu-lateral__link" aria-label="Ir a Cotejo de documentos CSV" title="Ir a Cotejo de documentos CSV" href="#">Cotejo de documentos CSV</a>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Obtenga su certificado digital" title="Ir a Obtenga su certificado digital" href="#">Obtenga su certificado digital</a>
+                        <a class="menu-lateral__link menu-lateral__link--active" aria-label="Ir a Obtenga su certificado digital" title="Ir a Obtenga su certificado digital" href="#">Obtenga su certificado digital</a>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Punto de información catastral" title="Ir a Punto de información catastral" href="#">Punto de información catastral</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Punto de información catastral" title="Ir a Punto de información catastral" href="#">Punto de información catastral</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a Competencias" title="Ir a Competencias" href="#">Competencias</a>
@@ -301,7 +325,10 @@
                         <a class="menu-lateral__link" aria-label="Ir a Enlaces de interés" title="Ir a Enlaces de interés" href="#">Enlaces de interés</a>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Calidad" title="Ir a Calidad" href="#">Calidad</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Calidad" title="Ir a Calidad" href="#">Calidad</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a ISO 9001" title="Ir a ISO 9001" href="#">ISO 9001</a>
@@ -324,7 +351,10 @@
                         </ul>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Información financiera" title="Ir a Información financiera" href="#">Información financiera</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Información financiera" title="Ir a Información financiera" href="#">Información financiera</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a Presupuesto" title="Ir a Presupuesto" href="#">Presupuesto</a>
@@ -344,7 +374,10 @@
                         </ul>
                     </li>
                     <li class="menu-lateral__item">
-                        <a class="menu-lateral__link" aria-label="Ir a Estadísticas" title="Ir a Estadísticas" href="#">Estadísticas</a>
+                        <div class="menu-lateral__section">
+                            <a class="menu-lateral__link" aria-label="Ir a Estadísticas" title="Ir a Estadísticas" href="#">Estadísticas</a>
+                            <i class="menu-lateral__icon fas fa-chevron-right"></i>
+                        </div>
                         <ul class="menu-lateral__submenu">
                             <li class="menu-lateral__item">
                                 <a class="menu-lateral__link" aria-label="Ir a Estadísticas generales" title="Ir a Estadísticas generales" href="#">Estadísticas generales</a>

@@ -251,6 +251,11 @@ p {
   font-size: 2rem;
 }
 
+.menu-lateral__icon {
+  align-self: center;
+  padding: 1rem;
+}
+
 /* Indicators */
 .slider-banner__indicator {
   display: flex;
@@ -710,7 +715,7 @@ p {
 .main {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 250px 1fr;
   gap: 0rem;
   width: 100%;
 }
@@ -737,29 +742,52 @@ p {
 .menu-lateral {
   position: sticky;
   top: 0;
-  padding: 3.125rem 1rem 1rem;
+  padding-top: 3.125rem;
   font-weight: 300;
+  z-index: 10;
 }
 .menu-lateral__item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+.menu-lateral__item:last-child {
+  border-bottom: 0;
+}
+.menu-lateral__section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
 }
 .menu-lateral__link {
-  padding: 0.5rem;
+  padding: 1rem 0 1rem 1rem;
   height: 100%;
   width: 100%;
+  grid-area: menu-item;
 }
-.menu-lateral__link:hover {
-  border-radius: 5px;
+.menu-lateral__link:hover, .menu-lateral__link--active {
   background: rgba(255, 255, 255, 0.1);
+}
+.menu-lateral__submenu {
+  display: none;
+  position: absolute;
+  left: 15.625rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: var(--color-primary);
+  width: 250px;
 }
 .menu-lateral h2 {
   font-size: 2rem;
   color: var(--color-light);
   padding-bottom: 1.875rem;
+  text-align: center;
+  width: 100%;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Contenido */

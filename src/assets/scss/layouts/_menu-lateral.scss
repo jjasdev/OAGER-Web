@@ -6,27 +6,50 @@
 .menu-lateral {
     position: sticky;
     top: 0;
-    padding: fn.pxTorem(50px) fn.pxTorem(16px) fn.pxTorem(16px);    
+    padding-top: fn.pxTorem(50px);    
     font-weight: 300;
+    z-index: 10;
 
     &__item {        
-        @include mx.createFlex(column, flex-start, center);         
+        border-bottom: 1px solid rgba(var.getColor('color-light'), 0.3);
+        @include mx.createFlex(row, space-between, flex-start);
+        
+        &:last-child{
+            border-bottom: 0;
+        }
+    }
+
+    &__section {    
+        @include mx.createFlex(row, space-between, flex-start); 
     }
 
     &__link {
-        padding: fn.pxTorem(8px);
+        padding: fn.pxTorem(16px) 0 fn.pxTorem(16px) fn.pxTorem(16px);
         height: 100%;
         width: 100%;
-
-        &:hover {            
-            border-radius: 5px;
+        grid-area: menu-item;    
+        
+        &:hover,
+        &--active {            
             background: rgba(var.getColor('color-light'), 0.1);
         }
+    }
+
+    &__submenu {     
+        display: none;   
+        position: absolute;        
+        left: fn.pxTorem(250px);
+        border-left: 1px solid rgba(var.getColor('color-light'), 0.3);        
+        background-color: var(--color-primary);
+        width: 250px;
     }
 
     h2 {
         font-size: var.getTypography('xl');
         color: var(--color-light);
         padding-bottom: fn.pxTorem(30px);
+        text-align: center;
+        width: 100%;
+        border-bottom: 4px solid rgba(var.getColor('color-light'), 0.3);
     }
 }
